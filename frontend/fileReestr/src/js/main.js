@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const { open } = window.__TAURI__.dialog;
 
 function setupButton() {
