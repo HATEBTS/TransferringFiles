@@ -2,10 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/bootstrap.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1" />
     <title>Tauri App</title>
-    <script type="module" src="/main.js" defer></script>
+    <script type="module" src="js/bootstrap.js" defer></script>
+    <script type="module" src="js/main.js" defer></script>
+
     <style>
       .logo.vanilla:hover {
         filter: drop-shadow(0 0 2em #ffe21c);
@@ -15,32 +17,35 @@
 
   <body>
     <div class="container">
-      <h1>Welcome to Tauri!</h1>
+      <form action="">
+          <input value="Выбор папки" class="button-dir" type="file" webkitdirectory @change="onFolderChange"/>
 
-      <div class="row">
-        <a href="https://tauri.app" target="_blank">
-          <img src="/assets/tauri.svg" class="logo tauri" alt="Tauri logo" />
-        </a>
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-          target="_blank"
-        >
-          <img
-            src="/assets/javascript.svg"
-            class="logo vanilla"
-            alt="JavaScript logo"
-          />
-        </a>
-      </div>
 
-      <p>Click on the Tauri logo to learn more about the framework</p>
-
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
+        <div class="mt-2 d-grid gap-4 float-md-end">
+          <div>
+            <input type="date" class="form-control button-dir" type="text"/>
+          </div>
+          <select class="form-control form-control-sm p-1 bg-light border">
+            <option>Large select</option>
+            <option>Large select</option>
+            <option>Large select</option>
+          </select>
+          <select class="form-control form-control-sm p-1 bg-light border">
+            <option>Default select</option>
+            <option>Default select</option>
+            <option>Default select</option>
+          </select>
+          <select class="form-control form-control-sm p-1 bg-light border">
+            <option>Small select</option>
+            <option>Small select</option>
+            <option>Small select</option>
+            <option>Small select</option>
+          </select>
+        </div>
+        <div class="row">
+          <p class="mt-5 w-25 mx-auto"><input type="submit"></p>
+        </div>
       </form>
-
-      <p id="greet-msg"></p>
     </div>
   </body>
 </html>
