@@ -23,13 +23,3 @@ async function handleOpenDialogClick() {
 
 // Вызываем функцию для настройки обработчика кнопки после загрузки DOM
 document.addEventListener('DOMContentLoaded', setupButton);
-
-=======
-const button = document.querySelector(".button-dir")
-
-button.addEventListener("click", function (){
-     QFileDialog::getExistingDirectory(0, "Выбор папки", "");
-
-
-})
->>>>>>> 3e00a37255219eba0cd6c8c856a4774766c61dbb
