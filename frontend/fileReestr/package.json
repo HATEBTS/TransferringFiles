@@ -7,10 +7,14 @@
     "tauri": "tauri"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@tauri-apps/api": "^1.4.0",
     "@tauri-apps/cli": "^1.4.0"
   },
   "dependencies": {
     "tauri": "^0.15.0"
+=======
+    "@tauri-apps/cli": "^1.4.0"
+>>>>>>> 3e00a37255219eba0cd6c8c856a4774766c61dbb
   }
 }

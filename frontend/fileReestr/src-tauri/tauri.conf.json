@@ -12,6 +12,7 @@
   },
   "tauri": {
     "allowlist": {
+<<<<<<< HEAD
       "path": {
         "all": true
       },
@@ -23,6 +24,8 @@
         "open": true,
         "save": true
       },
+=======
+>>>>>>> 3e00a37255219eba0cd6c8c856a4774766c61dbb
       "all": false,
       "shell": {
         "all": false,
@@ -41,12 +44,22 @@
         "icons/icon.ico"
       ]
     },
+<<<<<<< HEAD
 
+=======
+    "security": {
+      "csp": null
+    },
+>>>>>>> 3e00a37255219eba0cd6c8c856a4774766c61dbb
     "windows": [
       {
         "fullscreen": false,
         "resizable": true,
         "title": "fileReestr",
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3e00a37255219eba0cd6c8c856a4774766c61dbb
         "width": 600,
         "height": 400
       }
