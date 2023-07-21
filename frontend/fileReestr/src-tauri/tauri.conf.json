@@ -38,6 +38,7 @@
         "fullscreen": false,
         "resizable": true,
         "title": "fileReestr",
+
         "width": 600,
         "height": 400
       }
