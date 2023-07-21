@@ -12,6 +12,17 @@
   },
   "tauri": {
     "allowlist": {
+      "path": {
+        "all": true
+      },
+      "dialog": {
+        "all": true,
+        "ask": true,
+        "confirm": true,
+        "message": true,
+        "open": true,
+        "save": true
+      },
       "all": false,
       "shell": {
         "all": false,
@@ -30,9 +41,7 @@
         "icons/icon.ico"
       ]
     },
-    "security": {
-      "csp": null
-    },
+
     "windows": [
       {
         "fullscreen": false,
