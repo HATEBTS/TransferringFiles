@@ -12,6 +12,17 @@
   },
   "tauri": {
     "allowlist": {
+      "path": {
+        "all": true
+      },
+      "dialog": {
+        "all": true,
+        "ask": true,
+        "confirm": true,
+        "message": true,
+        "open": true,
+        "save": true
+      },
       "all": false,
       "shell": {
         "all": false,
@@ -38,7 +49,6 @@
         "fullscreen": false,
         "resizable": true,
         "title": "fileReestr",
-
         "width": 600,
         "height": 400
       }
