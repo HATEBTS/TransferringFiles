@@ -15,7 +15,7 @@ const handleDirectorySelect = (selectedPath) => {
 
 const elements = (<div className="name">
     <div className={"container center-block"}>
-        <form id={"form"} method={"post"} action={"http://localhost:5000/api/submit-form"} onSubmit={handleFormSubmit} target={"_blank"}>
+        <form id={"form"} method={"post"} action={"#"} onSubmit={handleFormSubmit} target={"_blank"}>
 
                 <DirectorySelectDialog onSelect={handleDirectorySelect} />
                 <input type={"hidden"} id={"selectedPath"} name={"dirs"} /> {/* Add the hidden input for the selected path */}
