@@ -36,7 +36,8 @@ def submit_form():
     data = request.get_json()
     if request.method == "POST":
         if not data["date"] or not is_valid_date(data["date"]):
-            return jsonify({'error': 'Некорректная дата или дата в будущем'}), 400
+            return jsonify({'date': 'Некорректная дата или дата в будущем'}), 400
+
 
     forms = SubmitForm(date=data["date"], number_camera=data["numberCamera"],
                        number_object=data["numberObject"], selected_path=data["selectedPath"])
