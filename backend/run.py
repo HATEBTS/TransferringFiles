@@ -38,6 +38,7 @@ def submit_form():
         if not data["date"] or not is_valid_date(data["date"]):
             return jsonify({'date': 'Некорректная дата или дата в будущем'}), 400
 
+
     forms = SubmitForm(date=data["date"], number_camera=data["numberCamera"],
                        number_object=data["numberObject"], selected_path=data["selectedPath"])
     db.session.add(forms)
