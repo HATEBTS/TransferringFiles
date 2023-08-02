@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
 from datetime import datetime
+from main import main
+import traceback
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
@@ -37,13 +39,17 @@ def submit_form():
     if request.method == "POST":
         if not data["date"] or not is_valid_date(data["date"]):
             return jsonify({'date': 'Некорректная дата или дата в будущем'}), 400
+        if len(data["selectedPath"]) == 0:
+            print(355)
+            return jsonify({'selectedPath': 'Пустой путь'}), 400
 
     forms = SubmitForm(date=data["date"], number_camera=data["numberCamera"],
                        number_object=data["numberObject"], selected_path=data["selectedPath"])
     db.session.add(forms)
     db.session.commit()
 
-    print(data)
+
+    print(main(data))
     return jsonify(data)
 
 
