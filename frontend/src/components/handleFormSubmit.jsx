@@ -29,7 +29,7 @@ const handleFormSubmit = (event) => {
       if (error.response.data.date) {
       // Handle errors here if needed
         console.error('Error while sending form data:', error.response.data.date);
-        alert("Не верная дата!")
+        alert("Вредная дата!")
         return (
           <div>
             {<ErrorModal/>}

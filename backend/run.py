@@ -7,7 +7,7 @@ from datetime import datetime
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:41287@localhost:5432/staticact"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:12qwasZX@localhost:5432/staticakt"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -37,7 +37,6 @@ def submit_form():
     if request.method == "POST":
         if not data["date"] or not is_valid_date(data["date"]):
             return jsonify({'date': 'Некорректная дата или дата в будущем'}), 400
-
 
     forms = SubmitForm(date=data["date"], number_camera=data["numberCamera"],
                        number_object=data["numberObject"], selected_path=data["selectedPath"])
