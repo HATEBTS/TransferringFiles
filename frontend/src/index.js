@@ -4,8 +4,6 @@ import './style/index.css';
 import './style/bootstrap.css';
 import DirectorySelectDialog from "./components/FileDialogButton";
 import handleFormSubmit from "./components/handleFormSubmit";
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
 const handleDirectorySelect = (selectedPath) => {
   console.log('Selected directory path:', selectedPath);
   const selectedPathInput = document.getElementById('selectedPath');
