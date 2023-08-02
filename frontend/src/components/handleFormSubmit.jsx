@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import DirectorySelectDialog from "./FileDialogButton";
-// import './style/index.css';
-// import './style/bootstrap.css';
-import axios from 'axios'; //
+import React from 'react';
+import axios from 'axios';
+import ErrorModal from "../errors/ErrorDate"; //
 const handleFormSubmit = (event) => {
   event.preventDefault(); // Prevent the default form submission behavior
 
@@ -29,8 +26,16 @@ const handleFormSubmit = (event) => {
       console.log('Server response:', response.data);
     })
     .catch((error) => {
+      if (error.response.data.date) {
       // Handle errors here if needed
-      console.error('Error while sending form data:', error.response.data.error);
+        console.error('Error while sending form data:', error.response.data.date);
+        alert("Не верная дата!")
+        return (
+          <div>
+            {<ErrorModal/>}
+          </div>
+        );
+      }
     });
 };
 
