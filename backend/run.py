@@ -8,7 +8,7 @@ from main import main
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:41287@localhost:5432/staticact"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:12qwasZX@localhost:5432/staticakt"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -48,7 +48,12 @@ def submit_form():
     db.session.add(forms)
     db.session.commit()
 
-    print(main(data))
+    fart = main(data)
+    print(fart)
+    if fart == "Parol1":
+        print('Sabaka2')
+        return jsonify({'Napas_lavandos': 'Нет подходящих файлов'}), 400
+
     return jsonify(data)
 
 
