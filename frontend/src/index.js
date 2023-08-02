@@ -4,6 +4,22 @@ import './style/index.css';
 import './style/bootstrap.css';
 import DirectorySelectDialog from "./components/FileDialogButton";
 import handleFormSubmit from "./components/handleFormSubmit";
+
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
 const handleDirectorySelect = (selectedPath) => {
   console.log('Selected directory path:', selectedPath);
   const selectedPathInput = document.getElementById('selectedPath');
@@ -27,6 +43,7 @@ const elements = (<div className="name">
                     <option>Large select</option>
                     <option>Large select</option>
                 </select>
+
                 <select name={"number-object"} className={"mt-2 mx-auto w-50 form-control form-control-sm p-1 bg-light border"}>
                     <option>Default select</option>
                     <option>Default select</option>
