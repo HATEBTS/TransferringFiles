@@ -28,8 +28,13 @@ const handleFormSubmit = (event) => {
     .catch((error) => {
       if (error.response.data.date) {
       // Handle errors here if needed
-        console.error('Error while sending form data:', error.response.data.date);
-        alert("Не верная дата!")
+
+        console.error('Error while sending form date:', error.response.data.date);
+        alert("Вредная дата!")}
+      else if (error.response.data.selectedPath){
+        console.error('Error while sending form path:', error.response.data.date);
+        alert("Вредный путь, выбери папку!")
+
       }
     });
 };
