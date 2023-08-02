@@ -23,7 +23,6 @@ const handleFormSubmit = (event) => {
   };
 
   // Send the form data to the server using Axios or another HTTP library
-  console.log(dataToSend)
   axios.post('http://127.0.0.1:5000/api/submit-form', dataToSend)
     .then((response) => {
       // Handle the server response here if needed
@@ -31,7 +30,7 @@ const handleFormSubmit = (event) => {
     })
     .catch((error) => {
       // Handle errors here if needed
-      console.error('Error while sending form data:', error);
+      console.error('Error while sending form data:', error.response.data.error);
     });
 };
 
