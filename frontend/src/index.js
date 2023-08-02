@@ -4,6 +4,8 @@ import './style/index.css';
 import './style/bootstrap.css';
 import DirectorySelectDialog from "./components/FileDialogButton";
 import handleFormSubmit from "./components/handleFormSubmit";
+
+
 const handleDirectorySelect = (selectedPath) => {
   console.log('Selected directory path:', selectedPath);
   const selectedPathInput = document.getElementById('selectedPath');
@@ -23,15 +25,26 @@ const elements = (<div className="name">
                     <input name={"date"} type={"date"} className={"p-1 mx-auto w-50 form-control button-dir"}/>
                 </div>
                 <select name={"number-camera"} className={"mt-2 mx-auto w-50 form-control form-control-sm p-1 bg-light border"}>
-                    <option>Large select</option>
-                    <option>Large select</option>
-                    <option>Large select</option>
+
+                    <option>Звено 1</option>
+                    <option>Звено 2</option>
+                    <option>Звено 3</option>
+                    <option>Звено 4</option>
+                    <option>Звено 5</option>
+                    <option>Звено 6</option>
+                    <option>Звено 7</option>
+                    <option>Звено 8</option>
+                    <option>Звено 9</option>
+                    <option>Звено 10</option>
+
                 </select>
-                <select name={"number-object"} className={"mt-2 mx-auto w-50 form-control form-control-sm p-1 bg-light border"}>
-                    <option>Default select</option>
-                    <option>Default select</option>
-                    <option>Default select</option>
-                </select>
+                <input name={"number-object"} type={"text"} className={"p-1 mt-2 mx-auto w-50 form-control"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
+
+                {/*<select name={"number-object"} className={"mt-2 mx-auto w-50 form-control form-control-sm p-1 bg-light border"}>*/}
+                {/*    <option>Default select</option>*/}
+                {/*    <option>Default select</option>*/}
+                {/*    <option>Default select</option>*/}
+                {/*</select>*/}
             </div>
             <div className={"row"}>
                 <p className={"mt-5 w-25 mx-auto"}><input className={"btn btn-outline-secondary"} id={"btn"} type={"submit"}/></p>
