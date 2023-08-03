@@ -6,7 +6,6 @@ from datetime import datetime, timezone
 from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
 
-
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
 
@@ -57,15 +56,13 @@ def submit_form():
             is_data_commit(forms, BOOL_FALSE)
             return jsonify({'selectedPath': 'Пустой путь'}), 400
 
-
-
-
     fart = main(data)
     print(fart)
-    if fart == "Parol1":
-        print('Sabaka2')
-        return jsonify({'Napas_lavandos': 'Нет подходящих файлов'}), 400
-    is_data_commit(forms, BOOL_TRUE)
+
+    if fart == "NoFile":
+        return jsonify({'Napas_lavandos': 'Нет mp4 или jpg'}), 400
+    if fart == "NoDateFile":
+        return jsonify({'NoDateFile': 'Нет файлов подходящих по дате'}), 400
     return jsonify(data)
 
 
