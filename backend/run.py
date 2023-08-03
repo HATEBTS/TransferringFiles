@@ -50,6 +50,7 @@ def submit_form():
 
     fart = main(data)
     print(fart)
+
     if fart == "NoFile":
         return jsonify({'Napas_lavandos': 'Нет mp4 или jpg'}), 400
     if fart == "NoDateFile":
