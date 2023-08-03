@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import ErrorModal from "../errors/ErrorDate"; //
 const handleFormSubmit = (event) => {
   event.preventDefault(); // Prevent the default form submission behavior
 
@@ -41,7 +40,7 @@ const handleFormSubmit = (event) => {
         alert("Нету файлов, выбери папку!")
 
       }
-      else if (error.response.data.Napas_lavandos){
+      else if (error.response.data.NoDateFile){
         console.error('Error while sending form date plus file:', error.response.data.NoDateFile);
         alert("Нет файлов соответствующих дате!")
 
