@@ -68,6 +68,7 @@ def copy_to(path, zv, date, name, cd=environ.get("DISK")):
         if date == get_video_creation_date(all_path):
             if os.path.isdir(path_to_end) is False:
                 os.makedirs(path_to_end)
+                
                 if os.path.isdir(f'{path_to_end}/Акты') is False:
                     os.makedirs(f'{path_to_end}/Акты')
                 if os.path.isdir(f'{path_to_end}/Видео') is False:
