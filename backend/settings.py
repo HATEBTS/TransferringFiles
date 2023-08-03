@@ -1,2 +1,2 @@
-DISK = r"C:\Users\1\Desktop\last"
+DISK = "C:/Users/Dmitry/Desktop/Новая папка (3)"
 

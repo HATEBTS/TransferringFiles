@@ -7,7 +7,7 @@ import shutil
 import settings
 
 
-def rename_sec(path, zv, date, name):
+def rename_sec(path, date, name):
     files = listdir(path)
     num = 1
     for i in files:
@@ -49,9 +49,11 @@ def copy_to(path, zv, date, name, cd=settings.DISK):
     file_list = listdir(path)
 
     gety = [i for i in file_list if '.mp4' in i.lower() or '.jpg' in i.lower()]
+    gety1 = [i for i in file_list if get_video_creation_date(i) == date]
     if len(gety) == 0:
-        print('Sabaka')
-        return "Parol1"
+        return "NoFile"
+    if len(gety1) == 0:
+        return "NoDateFile"
 
     for file in file_list:
 
@@ -61,10 +63,15 @@ def copy_to(path, zv, date, name, cd=settings.DISK):
 
         if date == get_video_creation_date(all_path):
             if os.path.isdir(path_to_end) is False:
-                os.mkdir(path_to_end)
+                os.makedirs(path_to_end)
+                
+                if os.path.isdir(f'{path_to_end}/Акты') is False:
+                    os.makedirs(f'{path_to_end}/Акты')
+                if os.path.isdir(f'{path_to_end}/Видео') is False:
+                    os.makedirs(f'{path_to_end}/Видео')
 
             if '.mp4' in file.lower() or '.jpg' in file.lower():
-                shutil.copy2(all_path, f'{path_to_end}/{file}')
+                shutil.copy2(all_path, f'{path_to_end}/Видео/{file}')
 
 
 def main(dr):
@@ -74,10 +81,9 @@ def main(dr):
         date = dr["date"]
         name = dr["numberObject"]
 
-        rename_sec(path, zv, date, name)
+        rename_sec(path, date, name)
 
-        ch_to = copy_to(path, zv, date, name)
-        if ch_to == 'Parol1':
+        if copy_to(path, zv, date, name) == 'Parol1':
             return 'Parol1'
 
         return "OK"
