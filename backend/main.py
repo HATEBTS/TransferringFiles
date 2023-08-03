@@ -49,9 +49,11 @@ def copy_to(path, zv, date, name, cd=settings.DISK):
     file_list = listdir(path)
 
     gety = [i for i in file_list if '.mp4' in i.lower() or '.jpg' in i.lower()]
+    gety1 = [i for i in file_list if get_video_creation_date(i) == date]
     if len(gety) == 0:
-        print('Sabaka')
-        return "Parol1"
+        return "NoFile"
+    if len(gety1) == 0:
+        return "NoDateFile"
 
     for file in file_list:
 

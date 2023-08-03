@@ -37,8 +37,13 @@ const handleFormSubmit = (event) => {
 
       }
       else if (error.response.data.Napas_lavandos){
-        console.error('Error while sending form path:', error.response.data.Napas_lavandos);
+        console.error('Error while sending form file:', error.response.data.Napas_lavandos);
         alert("Нету файлов, выбери папку!")
+
+      }
+      else if (error.response.data.Napas_lavandos){
+        console.error('Error while sending form date plus file:', error.response.data.NoDateFile);
+        alert("Нет файлов соответствующих дате!")
 
       }
     });
