@@ -18,6 +18,7 @@ from settings import BOOL_TRUE, BOOL_FALSE
 load_dotenv()
 base_path = path.join(path.dirname(__file__), 'data_folder')
 
+
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
 
@@ -76,7 +77,6 @@ def submit_form():
         return jsonify({'Napas_lavandos': 'Нет mp4 или jpg'}), 400
     if fart == "NoDateFile":
         is_data_commit(forms, BOOL_FALSE)
-
         return jsonify({'NoDateFile': 'Нет файлов подходящих по дате'}), 400
     is_data_commit(forms, BOOL_TRUE)
     return jsonify(data)
