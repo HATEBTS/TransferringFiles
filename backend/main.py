@@ -45,6 +45,7 @@ def get_video_creation_date(video_path):
         return None
 
 
+
 def copy_to(path, zv, date, name, cd=os.environ.get("DISK")):
     file_list = os.listdir(path)
 
