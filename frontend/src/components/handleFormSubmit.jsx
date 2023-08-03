@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import ErrorModal from "../errors/ErrorDate"; //
 const handleFormSubmit = (event) => {
   event.preventDefault(); // Prevent the default form submission behavior
 
@@ -32,8 +31,13 @@ const handleFormSubmit = (event) => {
         console.error('Error while sending form date:', error.response.data.date);
         alert("Вредная дата!")}
       else if (error.response.data.selectedPath){
-        console.error('Error while sending form path:', error.response.data.date);
+        console.error('Error while sending form path:', error.response.data.selectedPath);
         alert("Вредный путь, выбери папку!")
+
+      }
+      else if (error.response.data.Napas_lavandos){
+        console.error('Error while sending form path:', error.response.data.Napas_lavandos);
+        alert("Нету файлов, выбери папку!")
 
       }
     });
