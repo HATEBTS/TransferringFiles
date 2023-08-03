@@ -3,10 +3,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+path/
+*.xlsx
 # C extensions
 *.so
-
+data_folder/
 # Distribution / packaging
 .Python
 build/

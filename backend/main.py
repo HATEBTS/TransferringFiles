@@ -48,11 +48,8 @@ def get_video_creation_date(video_path):
         return None
 
 
-<<<<<<< HEAD
 def copy_to(path, zv, date, name, cd=os.environ.get('DISK')):
-=======
-def copy_to(path, zv, date, name, cd=environ.get("DISK")):
->>>>>>> b29dc84e3c16f8fe6e2ddb42c2ded5f4608cd6a9
+
     file_list = listdir(path)
 
     gety = [i for i in file_list if '.mp4' in i.lower() or '.jpg' in i.lower()]
