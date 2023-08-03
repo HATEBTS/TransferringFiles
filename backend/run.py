@@ -60,9 +60,14 @@ def submit_form():
     print(fart)
 
     if fart == "NoFile":
+        is_data_commit(forms, BOOL_FALSE)
         return jsonify({'Napas_lavandos': 'Нет mp4 или jpg'}), 400
     if fart == "NoDateFile":
+        is_data_commit(forms, BOOL_FALSE)
+
         return jsonify({'NoDateFile': 'Нет файлов подходящих по дате'}), 400
+    is_data_commit(forms, BOOL_TRUE)
+
     return jsonify(data)
 
 
