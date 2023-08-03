@@ -1,10 +1,12 @@
 from os import environ
+
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
 from datetime import datetime
+
 from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
 
@@ -14,7 +16,7 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
 
-app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('SQLALCHEMY_DATABASE_URI')
+app.config['SQLALCHEMY_DATABASE_URI'] = environ.get("SQLALCHEMY_DATABASE_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -72,7 +74,6 @@ def submit_form():
 
         return jsonify({'NoDateFile': 'Нет файлов подходящих по дате'}), 400
     is_data_commit(forms, BOOL_TRUE)
-
     return jsonify(data)
 
 
