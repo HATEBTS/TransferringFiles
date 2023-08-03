@@ -18,6 +18,7 @@ from settings import BOOL_TRUE, BOOL_FALSE
 load_dotenv()
 base_path = path.join(path.dirname(__file__), 'data_folder')
 
+
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
 
