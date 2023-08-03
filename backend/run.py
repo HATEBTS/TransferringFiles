@@ -1,14 +1,23 @@
-from flask import Flask, request, jsonify
+from os import environ, makedirs, path
+import io
+import csv
+
+import psycopg2
+from dotenv import load_dotenv
+from flask import Flask, request, jsonify, send_file, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
-from datetime import datetime, timezone
-from os import environ
-from dotenv import load_dotenv
+from datetime import datetime
+from openpyxl import Workbook
+
 from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
 
+
 load_dotenv()
+base_path = path.join(path.dirname(__file__), 'data_folder')
+
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
@@ -71,6 +80,58 @@ def submit_form():
         return jsonify({'NoDateFile': 'Нет файлов подходящих по дате'}), 400
     is_data_commit(forms, BOOL_TRUE)
     return jsonify(data)
+
+
+db_config = {
+    'dbname': environ.get("DB_NAME"),
+    'user': environ.get("DB_USER"),
+    'password': environ.get("DB_PASS"),
+    'host': environ.get("DB_HOST")
+}
+
+
+@app.route('/download_excel')
+def download_excel():
+    if request.method == "GET":
+
+        # Установка соединения с базой данных
+        conn = psycopg2.connect(**db_config)
+        cursor = conn.cursor()
+
+        # Выполнение SQL-запроса для получения данных
+        query = "SELECT * FROM submit_form"
+        cursor.execute(query)
+        data = cursor.fetchall()
+
+        # Создание Excel-файла
+        output = io.BytesIO()
+        workbook = Workbook()
+        sheet = workbook.active
+
+        # Запись данных в Excel
+        for row in data:
+            sheet.append(row)
+
+        # Сохранение в байтовом потоке
+        workbook.save(output)
+        output.seek(0)
+        # excel_folder = r'C:\Users\1\Desktop\last'
+        excel_filename = 'data.xlsx'
+        excel_path = path.join(base_path, excel_filename)
+
+        # Создание папки, если она не существует
+        makedirs(base_path, exist_ok=True)
+
+        with open(excel_path, 'wb') as f:
+            f.write(output.read())
+        # Отправка файла клиенту
+        send_file(
+            io.BytesIO(output.read()),
+            mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            as_attachment=True,
+            download_name='data.xlsx'  # Задайте имя файла через заголовок Content-Disposition
+        )
+        return 'Good'
 
 
 if __name__ == "__main__":

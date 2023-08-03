@@ -1,18 +1,14 @@
-from os import listdir
-from os import environ
 from dotenv import load_dotenv
 import os
 import datetime
 import win32con
 import win32api
 import shutil
-import settings
 
 load_dotenv()
 
-
 def rename_sec(path, date, name):
-    files = listdir(path)
+    files = os.listdir(path)
     num = 1
     for i in files:
         f = f"{path}/{name}_{date}_{num}"
@@ -49,8 +45,8 @@ def get_video_creation_date(video_path):
         return None
 
 
-def copy_to(path, zv, date, name, cd=environ.get("DISK")):
-    file_list = listdir(path)
+def copy_to(path, zv, date, name, cd=os.environ.get("DISK")):
+    file_list = os.listdir(path)
 
     gety = [i for i in file_list if '.mp4' in i.lower() or '.jpg' in i.lower()]
     gety1 = [i for i in file_list if get_video_creation_date(f"{path}/{i}") == date]
