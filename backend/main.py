@@ -4,7 +4,6 @@ import win32con
 import win32api
 import os
 import shutil
-import settings
 
 
 def rename_sec(path, date, name):
@@ -45,7 +44,7 @@ def get_video_creation_date(video_path):
         return None
 
 
-def copy_to(path, zv, date, name, cd=settings.DISK):
+def copy_to(path, zv, date, name, cd=os.environ.get('DISK')):
     file_list = listdir(path)
 
     gety = [i for i in file_list if '.mp4' in i.lower() or '.jpg' in i.lower()]
