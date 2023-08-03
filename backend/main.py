@@ -27,7 +27,7 @@ def rename_sec(path, date, name):
             listic.append(f"{name}_{date}_{num}.mp4")
             win32api.SetFileAttributes(f"{file}.mp4", win32con.FILE_ATTRIBUTE_NORMAL)
             num += 1
-            return listic
+    return listic
 
 
 def get_video_creation_date(video_path):
@@ -48,6 +48,7 @@ def get_video_creation_date(video_path):
 
 
 def copy_to(path, zv, date, name, list_failov, cd=os.environ.get("DISK")):
+
     file_list = os.listdir(path)
 
     gety = [i for i in file_list if '.mp4' in i.lower() or '.jpg' in i.lower()]
@@ -72,7 +73,7 @@ def copy_to(path, zv, date, name, list_failov, cd=os.environ.get("DISK")):
                 if os.path.isdir(f'{path_to_end}/Видео') is False:
                     os.makedirs(f'{path_to_end}/Видео')
 
-            if '.mp4' in file.lower() or '.jpg' in file.lower() and file in list_failov:
+            if '.jpg' in file.lower() or file in list_failov:
                 shutil.copy2(all_path, f'{path_to_end}/Видео/{file}')
 
 
@@ -84,7 +85,7 @@ def main(dr):
         name = dr["numberObject"]
 
         izbraneo = rename_sec(path, date, name)
-        prov = copy_to(path, zv, date, izbraneo, name)
+        prov = copy_to(path, zv, date, name, izbraneo)
         if prov == 'NoFile':
             return 'NoFile'
         if prov == 'NoDateFile':
