@@ -3,13 +3,17 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
 from datetime import datetime, timezone
+from os import environ
+from dotenv import load_dotenv
 from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:41287@localhost:5432/staticact"
+app.config['SQLALCHEMY_DATABASE_URI'] = environ.get("SQLALCHEMY_DATABASE_URI")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -60,9 +64,12 @@ def submit_form():
     print(fart)
 
     if fart == "NoFile":
+        is_data_commit(forms, BOOL_FALSE)
         return jsonify({'Napas_lavandos': 'Нет mp4 или jpg'}), 400
     if fart == "NoDateFile":
+        is_data_commit(forms, BOOL_FALSE)
         return jsonify({'NoDateFile': 'Нет файлов подходящих по дате'}), 400
+    is_data_commit(forms, BOOL_TRUE)
     return jsonify(data)
 
 

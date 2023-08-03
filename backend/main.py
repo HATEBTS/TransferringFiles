@@ -1,10 +1,14 @@
 from os import listdir
+from os import environ
+from dotenv import load_dotenv
+import os
 import datetime
 import win32con
 import win32api
-import os
 import shutil
 import settings
+
+load_dotenv()
 
 
 def rename_sec(path, date, name):
@@ -45,11 +49,11 @@ def get_video_creation_date(video_path):
         return None
 
 
-def copy_to(path, zv, date, name, cd=settings.DISK):
+def copy_to(path, zv, date, name, cd=environ.get("DISK")):
     file_list = listdir(path)
 
     gety = [i for i in file_list if '.mp4' in i.lower() or '.jpg' in i.lower()]
-    gety1 = [i for i in file_list if get_video_creation_date(i) == date]
+    gety1 = [i for i in file_list if get_video_creation_date(f"{path}/{i}") == date]
     if len(gety) == 0:
         return "NoFile"
     if len(gety1) == 0:
@@ -64,7 +68,7 @@ def copy_to(path, zv, date, name, cd=settings.DISK):
         if date == get_video_creation_date(all_path):
             if os.path.isdir(path_to_end) is False:
                 os.makedirs(path_to_end)
-
+                
                 if os.path.isdir(f'{path_to_end}/Акты') is False:
                     os.makedirs(f'{path_to_end}/Акты')
                 if os.path.isdir(f'{path_to_end}/Видео') is False:
@@ -82,9 +86,11 @@ def main(dr):
         name = dr["numberObject"]
 
         rename_sec(path, date, name)
-
-        if copy_to(path, zv, date, name) == 'Parol1':
-            return 'Parol1'
+        prov = copy_to(path, zv, date, name)
+        if prov == 'NoFile':
+            return 'NoFile'
+        if prov == 'NoDateFile':
+            return 'NoDateFile'
 
         return "OK"
 
