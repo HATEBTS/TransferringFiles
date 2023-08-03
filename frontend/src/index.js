@@ -39,12 +39,6 @@ const elements = (<div className="name">
 
                 </select>
                 <input name={"number-object"} type={"text"} className={"p-1 mt-2 mx-auto w-50 form-control"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
-
-                {/*<select name={"number-object"} className={"mt-2 mx-auto w-50 form-control form-control-sm p-1 bg-light border"}>*/}
-                {/*    <option>Default select</option>*/}
-                {/*    <option>Default select</option>*/}
-                {/*    <option>Default select</option>*/}
-                {/*</select>*/}
             </div>
             <div className={"row"}>
                 <p className={"mt-5 w-25 mx-auto"}><input className={"btn btn-outline-secondary"} id={"btn"} type={"submit"}/></p>

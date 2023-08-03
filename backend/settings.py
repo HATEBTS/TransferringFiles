@@ -1,2 +1,3 @@
-DISK = "C:/Users/Dmitry/Desktop/Новая папка (3)"
+BOOL_TRUE = True
+BOOL_FALSE = False
 
