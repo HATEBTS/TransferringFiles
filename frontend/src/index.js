@@ -4,6 +4,8 @@ import './style/index.css';
 import './style/bootstrap.css';
 import DirectorySelectDialog from "./components/FileDialogButton";
 import handleFormSubmit from "./components/handleFormSubmit";
+import handleLoadExcel from "./components/handleExcelFile";
+import ApiCallButton from "./components/handleExcelFile";
 
 
 const handleDirectorySelect = (selectedPath) => {
@@ -44,6 +46,9 @@ const elements = (<div className="name">
                 <p className={"mt-5 w-25 mx-auto"}><input className={"btn btn-outline-secondary"} id={"btn"} type={"submit"}/></p>
             </div>
         </form>
+        <div>
+            <ApiCallButton />
+        </div>
     </div>
 
 </div>)
