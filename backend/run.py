@@ -1,7 +1,7 @@
-from os import environ
+from os import environ, path
 
 from dotenv import load_dotenv
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
@@ -9,11 +9,14 @@ from datetime import datetime
 
 from base_disk_xls import unload_disk_base
 from psql_to_xls import psql_to_excel_load
+
 from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
 
 
 load_dotenv()
+base_path = path.join(path.dirname(__file__), 'data_folder')
+
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
