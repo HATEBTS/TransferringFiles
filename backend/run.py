@@ -12,6 +12,7 @@ from psql_to_xls import psql_to_excel_load
 
 from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
+from base_disk_xls import svod
 
 
 load_dotenv()
@@ -89,7 +90,8 @@ def download_excel():
 @app.route('/base_disk')
 def base_disk():
     if request.method == "GET":
-        unload_disk_base()
+        print(svod())
+        return "Oppa"
 
 
 if __name__ == "__main__":
