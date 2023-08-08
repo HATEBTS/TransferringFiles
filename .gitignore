@@ -8,6 +8,7 @@ path/
 # C extensions
 *.so
 data_folder/
+
 # Distribution / packaging
 .Python
 build/
@@ -37,7 +38,8 @@ MANIFEST
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
-
+credentials.json
+token.json
 # Unit test / coverage reports
 htmlcov/
 .tox/
