@@ -1,17 +1,15 @@
-from os import walk, path, listdir
+import os
+
 import openpyxl
 import pandas as pd
-from openpyxl import Workbook
-import os
 from dotenv import load_dotenv
-
 
 load_dotenv()
 
 dir_count = len(os.environ.get("DISK").split('\\')) + 1
 
-def unload_disk_base(dirs):
 
+def unload_disk_base(dirs):
     check_list = []
     dict_base_path = {
         "Звено": [],
@@ -35,7 +33,7 @@ def unload_disk_base(dirs):
                 dict_base_path["Номер акта"].append(num_act)
                 list_files = []
                 d = [list_files.extend(files1) for root1, dirs1, files1 in
-                              os.walk(os.path.abspath("/".join(path_file[:dir_count + 1]))) if files1]
+                     os.walk(os.path.abspath("/".join(path_file[:dir_count + 1]))) if files1]
                 f = list_files
                 list_files = '_'.join(list_files)
                 if (".xlsx" in list_files or ".xlsm" in list_files or ".XLSX" in list_files or ".XLSM" in
@@ -78,6 +76,8 @@ def unload_disk_base(dirs):
                 else:
                     check_list.append(path_file[dir_count].split('_')[0])
     return dict_base_path
+
+
 def svod(paths=os.environ.get("DISK")):
     try:
         d = unload_disk_base(paths)
@@ -94,4 +94,4 @@ def svod(paths=os.environ.get("DISK")):
         return "K KOK"
     except Exception as e:
         print(e)
-        return  "WHAT"
+        return "WHAT"
