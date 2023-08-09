@@ -24,10 +24,11 @@ def rename_sec(path, date, name):
 
             file = f"{path}/{name}_{date}_{num}"
 
-            os.rename(full_path, f"{file}.mp4")
-            listic.append(f"{name}_{date}_{num}.mp4")
-            win32api.SetFileAttributes(f"{file}.mp4", win32con.FILE_ATTRIBUTE_NORMAL)
-            num += 1
+            if get_video_creation_date(f"{path}/{i}") == date:
+                os.rename(full_path, f"{file}.mp4")
+                listic.append(f"{name}_{date}_{num}.mp4")
+                win32api.SetFileAttributes(f"{file}.mp4", win32con.FILE_ATTRIBUTE_NORMAL)
+                num += 1
     return listic
 
 
