@@ -1,5 +1,4 @@
-from os import environ
-
+from os import environ, path
 
 BOOL_TRUE = True
 BOOL_FALSE = False
@@ -9,4 +8,7 @@ DB_CONFIG = {
     'password': environ.get("DB_PASS"),
     'host': environ.get("DB_HOST")
 }
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+GOOGLE_TOKEN = path.join(path.dirname(__file__), "token.json")
+GOOGLE_CREDENTIALS = path.join(path.dirname(__file__), "credentials.json")
 
