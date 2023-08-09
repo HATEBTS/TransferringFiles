@@ -6,6 +6,7 @@ import DirectorySelectDialog from "./components/FileDialogButton";
 import handleFormSubmit from "./components/handleFormSubmit";
 import handleLoadExcel from "./components/handleExcelFile";
 import ApiCallButton from "./components/handleExcelFile";
+import LoadingModal from "./components/ModalLoading";
 
 
 const handleDirectorySelect = (selectedPath) => {
@@ -44,11 +45,31 @@ const elements = (<div className="name">
             </div>
             <div className={"row"}>
                 <p className={"mt-5 w-25 mx-auto"}><input className={"btn btn-outline-secondary"} id={"btn"} type={"submit"}/></p>
+                {/*<div className={"modal"} tabindex={"-1"} role={"dialog"} id={"myModal"}>*/}
+                {/*    <div className="modal-dialog" role="document">*/}
+                {/*        <div className="modal-content">*/}
+                {/*            <div className="modal-body">*/}
+                {/*                <div className="progress">*/}
+                {/*                    <div className="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>*/}
+                {/*                </div>*/}
+                {/*                <p>Loading...</p>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+                <LoadingModal />
+                {/*<div id="myModal" className="modal">*/}
+                {/*    <div className="modal-content">*/}
+                {/*        <span className="close">&times;</span>*/}
+                {/*        <p>Содержимое модального окна здесь...</p>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
         </form>
         <div>
             <ApiCallButton />
         </div>
+
     </div>
 
 </div>)
