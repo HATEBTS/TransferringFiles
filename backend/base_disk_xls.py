@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 dir_count = len(os.environ.get("DISK").split('\\')) + 1
+base_path = os.path.join(os.path.dirname(__file__), 'data_folder/base_disk.xlsx')
 
 
 def unload_disk_base(dirs):
@@ -84,10 +85,10 @@ def svod(paths=os.environ.get("DISK")):
         for i in d.values():
             print(len(i))
         writer = openpyxl.Workbook()
-        writer.save("Sozdal.xlsx")
+        writer.save(base_path)
         writer.close()
 
-        writer = pd.ExcelWriter('Sozdal.xlsx')
+        writer = pd.ExcelWriter(base_path)
         df_marks = pd.DataFrame(d)
         df_marks.to_excel(writer)
         writer._save()
@@ -95,3 +96,7 @@ def svod(paths=os.environ.get("DISK")):
     except Exception as e:
         print(e)
         return "WHAT"
+
+
+if __name__ == "__main__":
+    svod()

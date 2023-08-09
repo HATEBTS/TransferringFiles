@@ -1,12 +1,13 @@
 from os import environ, path
-
+import re
 from dotenv import load_dotenv
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
 from datetime import datetime
 
+from google_sheet_api import google_sipher
 from psql_to_xls import psql_to_excel_load
 
 from main import main
@@ -37,6 +38,11 @@ class SubmitForm(db.Model):
     status_request = db.Column(db.Boolean, default=False, nullable=False)
 
 
+class GoogleCipher(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    cipher = db.Column(db.String, nullable=False)
+
+
 def is_valid_date(date_str):
     try:
         date = datetime.strptime(date_str, '%Y-%m-%d')
@@ -65,7 +71,6 @@ def submit_form():
         if len(data["selectedPath"]) == 0:
             is_data_commit(forms, BOOL_FALSE)
             return jsonify({'selectedPath': 'Пустой путь'}), 400
-
     fart = main(data)
 
     if fart == "NoFile":
@@ -76,7 +81,12 @@ def submit_form():
 
         return jsonify({'NoDateFile': 'Нет файлов подходящих по дате'}), 400
     is_data_commit(forms, BOOL_TRUE)
-    return jsonify(data)
+    return jsonify({'message': 'Upload completed'})
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
 @app.route('/download_excel')
@@ -89,8 +99,21 @@ def download_excel():
 @app.route('/base_disk')
 def base_disk():
     if request.method == "GET":
-        print(svod())
+        svod()
         return "Oppa"
+
+
+@app.route('/google_sheet_cipher')
+def google_cipher_api():
+    if request.method == "GET":
+        cipher_lst = google_sipher()
+        for num_cipher in cipher_lst:
+            cipher = num_cipher.split(" ")[0]
+            if bool(re.search('[а-яА-Я]', cipher)):
+                continue
+            else:
+                print(cipher)
+        return ""
 
 
 if __name__ == "__main__":

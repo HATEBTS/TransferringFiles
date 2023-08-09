@@ -9,7 +9,7 @@ const ApiCallButton = () => {
       setIsLoading(true);
 
       // Вызов API
-      const response = await axios.get('http://127.0.0.1:5000/download_excel'); // Замените на реальный URL вашего API
+      const response = await axios.get('http://127.0.0.1:5000/download_excel');
 
       // Обработка ответа от API
       console.log('Ответ от API:', response.data);
@@ -22,11 +22,18 @@ const ApiCallButton = () => {
   };
 
   return (
-    <div>
-      <button className={"btn btn-dark"} onClick={handleApiCall} disabled={isLoading}>
-        {isLoading ? 'Загрузка...' : 'Выгрузить'}
-      </button>
-    </div>
+        <div className={"row align-items-start"}>
+          <div className={"col"}>
+            <button className={"btn btn-dark"} onClick={handleApiCall} disabled={isLoading}>
+              {isLoading ? 'Загрузка...' : 'Выгрузить из БД'}
+            </button>
+          </div>
+          <div className={"col align-self-end"}>
+            <button className={"btn btn-dark"} onClick={handleApiCall} disabled={isLoading}>
+              {isLoading ? 'Загрузка...' : 'Выгрузить шифры'}
+            </button>
+          </div>
+        </div>
   );
 };
 

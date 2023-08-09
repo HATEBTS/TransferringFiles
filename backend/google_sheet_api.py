@@ -20,7 +20,7 @@ SAMPLE_SPREADSHEET_ID = environ.get("SAMPLE_SPREADSHEET_ID")
 SAMPLE_RANGE_NAME = 'Лист1!H:H'
 
 
-def main():
+def google_sipher():
     """Shows basic usage of the Sheets API.
     Prints values from a sample spreadsheet.
     """
@@ -55,11 +55,11 @@ def main():
             print('No data found.')
             return
 
-        print('Name, Major:')
-        print([i[0] for i in values if i])
+        cipher_lst = [i[0] for i in values if i]
+        return cipher_lst
     except HttpError as err:
         print(err)
 
 
 if __name__ == '__main__':
-    main()
+    google_sipher()
