@@ -84,11 +84,6 @@ def submit_form():
     return jsonify({'message': 'Upload completed'})
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
 @app.route('/download_excel')
 def download_excel():
     if request.method == "GET":
