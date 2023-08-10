@@ -11,6 +11,7 @@ const handleFormSubmit = (event) => {
   const date = formData.get('date');
   const numberCamera = formData.get('number-camera');
   const numberObject = formData.get('number-object');
+  const timeObed = formData.get('timeObed');
   const selectedPath = document.getElementById('selectedPath').value; // Get the selected path from the hidden input
 
   // Create an object with the form data to send to the server
@@ -19,8 +20,9 @@ const handleFormSubmit = (event) => {
     numberCamera,
     numberObject,
     selectedPath,
+    timeObed
   };
-
+  console.log(dataToSend)
 
   modal.style.display = "block";
 

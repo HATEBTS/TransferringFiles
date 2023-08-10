@@ -36,6 +36,7 @@ class SubmitForm(db.Model):
     number_object = db.Column(db.String(15), nullable=False)
     selected_path = db.Column(db.String(100), nullable=False)
     status_request = db.Column(db.Boolean, default=False, nullable=False)
+    time_obed = db.Column(db.String(15), nullable=True)
 
 
 class GoogleCipher(db.Model):
@@ -62,7 +63,9 @@ def submit_form():
 
     data = request.get_json()
     forms = SubmitForm(date=data["date"], number_camera=data["numberCamera"],
-                       number_object=data["numberObject"], selected_path=data["selectedPath"])
+                       number_object=data["numberObject"], selected_path=data["selectedPath"],
+                       time_obed=data['timeObed'])
+    print(forms)
     if request.method == "POST":
         if not data["date"] or not is_valid_date(data["date"]):
             is_data_commit(forms, BOOL_FALSE)
