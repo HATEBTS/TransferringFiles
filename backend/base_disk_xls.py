@@ -65,8 +65,8 @@ def unload_disk_base(dirs):
                     check_list.append(path_file[dir_count].split('_')[0])
                     prost = os.path.join(root, file).split('\\')[dir_count].split('_')[0].split(',')
                     for _ in range(1, len(prost)):
-                        dict_base_path["Звено"].append(prost[_][:2])
-                        dict_base_path["Номер акта"].append(prost[_][2:5])
+                        dict_base_path["Звено"].append(prost[_].lstrip()[:2])
+                        dict_base_path["Номер акта"].append(prost[_].lstrip()[2:5])
                         dict_base_path["Статус акта"].append(last_akt)
                         dict_base_path["Статус видео"].append(last_vid)
                         dict_base_path["Кол-во видео"].append(last_colvid)
