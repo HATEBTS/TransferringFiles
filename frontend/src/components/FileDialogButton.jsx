@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { open} from "@tauri-apps/api/dialog";
+import { open } from "@tauri-apps/api/dialog";
 
 const DirectorySelectDialog = ({ onSelect }) => {
   const [selectedPath, setSelectedPath] = useState('');
@@ -8,6 +8,10 @@ const DirectorySelectDialog = ({ onSelect }) => {
     try {
       const result = await open({
         directory: true, // Указываем, что нужно выбрать каталог, а не файл
+          filters: [{
+          name: 'VIDEO',
+          extensions: ['sec', 'mp4']
+                    }]
       });
       if (result && result.length > 0) {
         setSelectedPath(result); // Сохраняем выбранный путь в состоянии компонента
