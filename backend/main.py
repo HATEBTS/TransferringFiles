@@ -26,7 +26,7 @@ def rename_sec(path, date, name):
 
             file = f"{path}/{name}_{date}_{num}"
 
-            if get_video_creation_date(f"{path}/{i}") == date:
+            if get_video_creation_date(full_path) == date:
                 os.rename(full_path, f"{file}.mp4")
                 listic.append(f"{name}_{date}_{num}.mp4")
                 win32api.SetFileAttributes(f"{file}.mp4", win32con.FILE_ATTRIBUTE_NORMAL)
@@ -76,6 +76,8 @@ def copy_to(path, zv, date, name, list_failov, cd=os.environ.get("DISK")):
                     os.makedirs(f'{path_to_end}/Акты')
                 if os.path.isdir(f'{path_to_end}/Видео') is False:
                     os.makedirs(f'{path_to_end}/Видео')
+                if os.path.isdir(f'{path_to_end}/Рд') is False:
+                    os.makedirs(f'{path_to_end}/Рд')
 
             if '.jpg' in file.lower() or file in list_failov:
                 shutil.copy2(all_path, f'{path_to_end}/Видео/{file}')
