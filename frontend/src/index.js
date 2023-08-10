@@ -7,6 +7,7 @@ import handleFormSubmit from "./components/handleFormSubmit";
 import handleLoadExcel from "./components/handleExcelFile";
 import ApiCallButton from "./components/handleExcelFile";
 import LoadingModal from "./components/ModalLoading";
+import CheckBox from "./components/StateUseCheckbox";
 
 
 const handleDirectorySelect = (selectedPath) => {
@@ -43,27 +44,12 @@ const elements = (<div className="name">
                 </select>
                 <input name={"number-object"} type={"text"} className={"p-1 mt-2 mx-auto w-50 form-control"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
             </div>
+            <div className={"input-group mb-3 "}>
+                <CheckBox />
+            </div>
             <div className={"row"}>
                 <p className={"mt-5 w-25 mx-auto"}><input className={"btn btn-outline-secondary"} id={"btn"} type={"submit"}/></p>
-                {/*<div className={"modal"} tabindex={"-1"} role={"dialog"} id={"myModal"}>*/}
-                {/*    <div className="modal-dialog" role="document">*/}
-                {/*        <div className="modal-content">*/}
-                {/*            <div className="modal-body">*/}
-                {/*                <div className="progress">*/}
-                {/*                    <div className="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>*/}
-                {/*                </div>*/}
-                {/*                <p>Loading...</p>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
                 <LoadingModal />
-                {/*<div id="myModal" className="modal">*/}
-                {/*    <div className="modal-content">*/}
-                {/*        <span className="close">&times;</span>*/}
-                {/*        <p>Содержимое модального окна здесь...</p>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
             </div>
         </form>
         <div>
@@ -71,7 +57,6 @@ const elements = (<div className="name">
         </div>
 
     </div>
-
 </div>)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(elements);
