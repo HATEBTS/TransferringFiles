@@ -26,6 +26,9 @@ const handleFormSubmit = (event) => {
 
   modal.style.display = "block";
 
+
+  modal.style.display = "block";
+
   // Send the form data to the server using Axios or another HTTP library
   axios.post('http://127.0.0.1:5000/api/submit-form', dataToSend)
     .then((response) => {
