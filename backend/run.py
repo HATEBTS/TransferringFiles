@@ -43,12 +43,6 @@ class GoogleCipher(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     cipher = db.Column(db.String, nullable=False)
 
-
-class GoogleCipher(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    cipher = db.Column(db.String, nullable=False)
-
-
 def is_valid_date(date_str):
     try:
         date = datetime.strptime(date_str, '%Y-%m-%d')
