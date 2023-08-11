@@ -1,6 +1,9 @@
 import axios from 'axios';
-const handleFormSubmit = (event) => {
+
+
+const HandleFormSubmit = (event) => {
   event.preventDefault(); // Prevent the default form submission behavior
+
   const modal = document.getElementById("myModal");
   // const btn = document.getElementById("btn");
   // const closeBtn = document.getElementsByClassName("close")[0];
@@ -22,8 +25,6 @@ const handleFormSubmit = (event) => {
     timeObed
   };
   console.log(dataToSend)
-
-  modal.style.display = "block";
 
 
   modal.style.display = "block";
@@ -91,4 +92,4 @@ const handleFormSubmit = (event) => {
     });
 };
 
-export default handleFormSubmit;
+export default HandleFormSubmit;
