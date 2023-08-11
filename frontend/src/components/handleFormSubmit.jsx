@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
 import axios from 'axios';
 const handleFormSubmit = (event) => {
   event.preventDefault(); // Prevent the default form submission behavior
   const modal = document.getElementById("myModal");
-  const btn = document.getElementById("btn");
-  const closeBtn = document.getElementsByClassName("close")[0];
+  // const btn = document.getElementById("btn");
+  // const closeBtn = document.getElementsByClassName("close")[0];
 
   // Collect the form data
   const formData = new FormData(event.target);
@@ -37,6 +36,7 @@ const handleFormSubmit = (event) => {
       console.log('Server response:', response.data);
       modal.style.display = "none";
       alert("Готово!")
+      window.location.reload()
 
     })
     .catch((error) => {

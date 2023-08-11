@@ -18,7 +18,6 @@ from base_disk_xls import svod
 load_dotenv()
 base_path = path.join(path.dirname(__file__), 'data_folder')
 
-
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
 
@@ -37,11 +36,6 @@ class SubmitForm(db.Model):
     selected_path = db.Column(db.String(100), nullable=False)
     status_request = db.Column(db.Boolean, default=False, nullable=False)
     time_obed = db.Column(db.String(15), nullable=True)
-
-
-class GoogleCipher(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    cipher = db.Column(db.String, nullable=False)
 
 
 class GoogleCipher(db.Model):
