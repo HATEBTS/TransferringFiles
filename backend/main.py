@@ -136,7 +136,12 @@ def main(dr):
         date = dr["date"]
         name = dr["numberObject"]
         time = dr['timeObed']
-
+        if time is not None and "," not in name:
+            return "PlsZap"
+        if len(name) < 2:
+            return "Lename"
+        if str(zv)[-1] != name[1]:
+            return "Netotsh"
         izbraneo = rename_sec(path, date, name, time)
         prov = copy_to(path, zv, date, name, izbraneo, time)
         if prov == 'NoFile':

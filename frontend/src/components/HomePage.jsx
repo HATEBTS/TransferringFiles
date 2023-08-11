@@ -29,6 +29,7 @@ const HomePages = (event) => {
                     </div>
                     <select name={"number-camera"} className={"mt-2 mx-auto w-50 form-control form-control-sm p-1 bg-light border"}>
 
+                        <option>Выбрать звено</option>
                         <option>Звено 1</option>
                         <option>Звено 2</option>
                         <option>Звено 3</option>
