@@ -1,9 +1,9 @@
 import TabWindow from "./TabsWindow";
-import handleFormSubmit from "./handleFormSubmit";
+import HandleFormSubmit from "./handleFormSubmit";
 import DirectorySelectDialog from "./FileDialogButton";
 import CheckBox from "./StateUseCheckbox";
 import LoadingModal from "./ModalLoading";
-import React from "react";
+import React, {useState} from "react";
 
 const handleDirectorySelect = (selectedPath) => {
   console.log('Selected directory path:', selectedPath);
@@ -14,11 +14,41 @@ const handleDirectorySelect = (selectedPath) => {
 
 
 const HomePages = (event) => {
+    const [isLoading, setIsLoading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const progressCallback = (progressEvent) => {
+        const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+        setUploadProgress(percentCompleted);
+      };
+
+      await HandleFormSubmit(event, progressCallback);
+      alert("Готово!");
+    } catch (error) {
+      console.error('Error while sending form:', error);
+      // Handle errors here if needed
+      alert("Произошла ошибка при отправке формы.");
+    } finally {
+      setIsLoading(false);
+      setUploadProgress(0);
+    }
+  };
+
+  const handleDirectorySelect = (selectedPath) => {
+    console.log('Selected directory path:', selectedPath);
+    const selectedPathInput = document.getElementById('selectedPath');
+    selectedPathInput.value = selectedPath;
+  };
     return (
         <div className="name">
         <TabWindow />
         <div className={"container center-block"}>
-            <form id={"form"} method={"post"} action={"#"} onSubmit={handleFormSubmit} target={"_blank"}>
+            <form id={"form"} method={"post"} action={"#"} onSubmit={HandleFormSubmit} target={"_blank"}>
 
                     <DirectorySelectDialog onSelect={handleDirectorySelect} />
                     <input type={"hidden"} id={"selectedPath"} name={"dirs"} /> {/* Add the hidden input for the selected path */}
