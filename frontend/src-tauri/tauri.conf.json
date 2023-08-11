@@ -8,7 +8,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "test",
+    "productName": "Мандарин",
     "version": "0.1.0"
   },
   "tauri": {
@@ -39,7 +39,7 @@
         "icons/128x128.png",
         "icons/128x128@2x.png",
         "icons/icon.icns",
-        "icons/icon.ico"
+        "icons/atom.ico"
       ],
       "identifier": "com.tauri.dev",
       "longDescription": "",
@@ -68,10 +68,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 400,
+        "height": 500,
         "resizable": true,
-        "title": "test",
-        "width": 600
+        "title": "Мандаринка",
+        "width": 700
       }
     ]
   }

@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
 import axios from 'axios';
 const handleFormSubmit = (event) => {
   event.preventDefault(); // Prevent the default form submission behavior
   const modal = document.getElementById("myModal");
-  const btn = document.getElementById("btn");
-  const closeBtn = document.getElementsByClassName("close")[0];
+  // const btn = document.getElementById("btn");
+  // const closeBtn = document.getElementsByClassName("close")[0];
 
   // Collect the form data
   const formData = new FormData(event.target);
   const date = formData.get('date');
   const numberCamera = formData.get('number-camera');
   const numberObject = formData.get('number-object');
+  const timeObed = formData.get('timeObed');
   const selectedPath = document.getElementById('selectedPath').value; // Get the selected path from the hidden input
 
   // Create an object with the form data to send to the server
@@ -19,7 +19,11 @@ const handleFormSubmit = (event) => {
     numberCamera,
     numberObject,
     selectedPath,
+    timeObed
   };
+  console.log(dataToSend)
+
+  modal.style.display = "block";
 
 
   modal.style.display = "block";
@@ -32,6 +36,7 @@ const handleFormSubmit = (event) => {
       console.log('Server response:', response.data);
       modal.style.display = "none";
       alert("Готово!")
+      window.location.reload()
 
     })
     .catch((error) => {
