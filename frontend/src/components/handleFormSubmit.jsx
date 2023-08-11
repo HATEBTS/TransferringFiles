@@ -68,6 +68,27 @@ const HandleFormSubmit = (event) => {
 
 
       }
+      else if (error.response.data.PlsZap){
+        console.error('Error while sending form date plus file:', error.response.data.PlsZap);
+        alert(error.response.data.PlsZap)
+        modal.style.display = "none";
+
+
+      }
+      else if (error.response.data.Netotsh){
+        console.error('Error while sending form date plus file:', error.response.data.Netotsh);
+        alert(error.response.data.Netotsh)
+        modal.style.display = "none";
+
+
+      }
+      else if (error.response.data.Lename){
+        console.error('Error while sending form date plus file:', error.response.data.Lename);
+        alert(error.response.data.Lename)
+        modal.style.display = "none";
+
+
+      }
     });
 };
 

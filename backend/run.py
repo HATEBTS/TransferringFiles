@@ -80,8 +80,16 @@ def submit_form():
         return jsonify({'Napas_lavandos': 'Нет mp4 или jpg'}), 400
     if fart == "NoDateFile":
         is_data_commit(forms, BOOL_FALSE)
-
         return jsonify({'NoDateFile': 'Нет файлов подходящих по дате'}), 400
+    if fart == "PlsZap":
+        is_data_commit(forms, BOOL_FALSE)
+        return jsonify({'PlsZap': 'При разделении необходимо указывать 2 шифра'}), 400
+    if fart == "Netotsh":
+        is_data_commit(forms, BOOL_FALSE)
+        return jsonify({'Netotsh': 'Шифр не совпадает со звеном'}), 400
+    if fart == "Lename":
+        is_data_commit(forms, BOOL_FALSE)
+        return jsonify({'Lename': 'Некорректный шифр'}), 400
     is_data_commit(forms, BOOL_TRUE)
     return jsonify({'message': 'Upload completed'})
 

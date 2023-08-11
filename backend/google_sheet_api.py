@@ -1,6 +1,7 @@
 from __future__ import print_function
 
 import os.path
+import google.auth
 from os import environ
 
 from dotenv import load_dotenv
@@ -17,7 +18,8 @@ load_dotenv()
 # GOOGLE_CREDENTIALS_TOKEN
 # The ID and range of a sample spreadsheet.
 SAMPLE_SPREADSHEET_ID = environ.get("SAMPLE_SPREADSHEET_ID")
-SAMPLE_RANGE_NAME = 'Лист1!H:H'
+SAMPLE_RANGE_NAME = 'Лист2!H:H'
+INSERT_RANGE_NAME = "Лист2!L:N"
 
 
 def google_sipher():
@@ -55,12 +57,51 @@ def google_sipher():
             print('No data found.')
             return
 
-        cipher_lst = [i[0] for i in values if i]
+        cipher_lst = []
+        for i in values:
+            if i:
+                cipher_lst.append(i[0])
+            else:
+                cipher_lst.append(i)
+        print(*cipher_lst, sep='\n')
         return cipher_lst
     except HttpError as err:
         print(err)
 
+def update_values(spreadsheet_id, range_name, value_input_option,
+                  _values):
+    creds, _ = google.auth.default()
+    # pylint: disable=maybe-no-member
+    try:
+
+        service = build('sheets', 'v4', credentials=creds)
+        values = [
+            [
+                # Cell values ...
+            ],
+            # Additional rows ...
+        ]
+        body = {
+            'values': values
+        }
+        result = service.spreadsheets().values().update(
+            spreadsheetId=spreadsheet_id, range=range_name,
+            valueInputOption=value_input_option, body=body).execute()
+        print(f"{result.get('updatedCells')} cells updated.")
+        return result
+    except HttpError as error:
+        print(f"An error occurred: {error}")
+        return error
+
 
 if __name__ == '__main__':
-    google_sipher()
+    list_shifr = google_sipher()
+    for i in range(1, len(list_shifr) + 1):
+        update_values("1K7Ox7ONPxrNZmyjB8yPzziH0kDxuoM5SVlcT69Xdx3o",
+                      f"L{i+1}:N{i+1}", "RAW",
+                      [
+                          ['A', 'B', "C"]
+                      ])
+
+
 
