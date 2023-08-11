@@ -17,6 +17,7 @@ const ApiCallButton = () => {
       setIsLoading(false);
     } catch (error) {
       console.error('Ошибка вызова API:', error);
+      alert("Ошибка", error);
       setIsLoading(false);
     }
   };
@@ -25,7 +26,7 @@ const ApiCallButton = () => {
         <div className={"row align-items-start"}>
           <div className={"col"}>
             <button className={"btn btn-dark"} onClick={handleApiCall} disabled={isLoading}>
-              {isLoading ? 'Загрузка...' : 'Выгрузить из БД'}
+              {isLoading ? 'Загрузка...' : 'Выгрузить из БД логи'}
             </button>
           </div>
           <div className={"col align-self-end"}>

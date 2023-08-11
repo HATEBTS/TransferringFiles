@@ -1,7 +1,8 @@
 from os import environ, path
 import re
+
 from dotenv import load_dotenv
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
@@ -9,7 +10,6 @@ from datetime import datetime
 
 from google_sheet_api import google_sipher
 from psql_to_xls import psql_to_excel_load
-
 from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
 from base_disk_xls import svod
@@ -17,7 +17,6 @@ from base_disk_xls import svod
 
 load_dotenv()
 base_path = path.join(path.dirname(__file__), 'data_folder')
-
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
@@ -42,6 +41,7 @@ class SubmitForm(db.Model):
 class GoogleCipher(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     cipher = db.Column(db.String, nullable=False)
+
 
 def is_valid_date(date_str):
     try:
