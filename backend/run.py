@@ -1,7 +1,8 @@
 from os import environ, path
 import re
+
 from dotenv import load_dotenv
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
@@ -9,7 +10,6 @@ from datetime import datetime
 
 from google_sheet_api import google_sipher
 from psql_to_xls import psql_to_excel_load
-
 from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
 from base_disk_xls import svod
@@ -17,7 +17,6 @@ from base_disk_xls import svod
 
 load_dotenv()
 base_path = path.join(path.dirname(__file__), 'data_folder')
-
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for the entire application
@@ -42,6 +41,7 @@ class SubmitForm(db.Model):
 class GoogleCipher(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     cipher = db.Column(db.String, nullable=False)
+
 
 def is_valid_date(date_str):
     try:
@@ -80,8 +80,16 @@ def submit_form():
         return jsonify({'Napas_lavandos': 'Нет mp4 или jpg'}), 400
     if fart == "NoDateFile":
         is_data_commit(forms, BOOL_FALSE)
-
         return jsonify({'NoDateFile': 'Нет файлов подходящих по дате'}), 400
+    if fart == "PlsZap":
+        is_data_commit(forms, BOOL_FALSE)
+        return jsonify({'PlsZap': 'При разделении необходимо указывать 2 шифра'}), 400
+    if fart == "Netotsh":
+        is_data_commit(forms, BOOL_FALSE)
+        return jsonify({'Netotsh': 'Шифр не совпадает со звеном'}), 400
+    if fart == "Lename":
+        is_data_commit(forms, BOOL_FALSE)
+        return jsonify({'Lename': 'Некорректный шифр'}), 400
     is_data_commit(forms, BOOL_TRUE)
     return jsonify({'message': 'Upload completed'})
 
@@ -114,6 +122,4 @@ def google_cipher_api():
 
 
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
     app.run(debug=True)

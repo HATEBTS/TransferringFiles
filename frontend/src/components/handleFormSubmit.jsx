@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
 import axios from 'axios';
 const handleFormSubmit = (event) => {
   event.preventDefault(); // Prevent the default form submission behavior
   const modal = document.getElementById("myModal");
-  const btn = document.getElementById("btn");
-  const closeBtn = document.getElementsByClassName("close")[0];
+  // const btn = document.getElementById("btn");
+  // const closeBtn = document.getElementsByClassName("close")[0];
 
   // Collect the form data
   const formData = new FormData(event.target);
@@ -37,6 +36,7 @@ const handleFormSubmit = (event) => {
       console.log('Server response:', response.data);
       modal.style.display = "none";
       alert("Готово!")
+      window.location.reload()
 
     })
     .catch((error) => {
@@ -63,6 +63,27 @@ const handleFormSubmit = (event) => {
       else if (error.response.data.NoDateFile){
         console.error('Error while sending form date plus file:', error.response.data.NoDateFile);
         alert("Нет файлов соответствующих дате!")
+        modal.style.display = "none";
+
+
+      }
+      else if (error.response.data.PlsZap){
+        console.error('Error while sending form date plus file:', error.response.data.PlsZap);
+        alert(error.response.data.PlsZap)
+        modal.style.display = "none";
+
+
+      }
+      else if (error.response.data.Netotsh){
+        console.error('Error while sending form date plus file:', error.response.data.Netotsh);
+        alert(error.response.data.Netotsh)
+        modal.style.display = "none";
+
+
+      }
+      else if (error.response.data.Lename){
+        console.error('Error while sending form date plus file:', error.response.data.Lename);
+        alert(error.response.data.Lename)
         modal.style.display = "none";
 
 
