@@ -4,15 +4,23 @@ import shutil
 from dotenv import load_dotenv
 
 load_dotenv()
+
+def proverka_sh(file):
+    d = 0
+    if len(file) >= 5:
+        for i in file[:5]:
+            if i in "0123456789":
+                d += 1
+    return d >= 5
+
 def perenos_aktov():
     akt_path = r"E:\!Проверено"
 
     rd_path = r"C:\Users\Dmitry\Desktop\Акты\Рд"
-
     dir_count = len(os.environ.get("DISK").split('\\')) + 1
 
     akti = {}
-    rd = {}
+    sps_papasha = {}
     #Создаем список имеющихся актов
     for root, paths, files in os.walk(os.path.abspath(akt_path)):
         for file in files:
@@ -21,26 +29,27 @@ def perenos_aktov():
     #Ищем папки с шифрами
     for root, paths, files in os.walk(os.path.abspath(os.environ.get("DISK"))):
         for subdirname in paths:
-            a = os.path.join(root, subdirname)
-            name = os.path.join(root, subdirname).split('\\')
-            print(name)
-            if len(os.path.join(root, subdirname).split('\\')) < dir_count + 1:
-                continue
-            for i in akti:
-                if i in name[dir_count]:
-                    print(name[dir_count], i)
-
-                    if os.path.isdir(f'{a}/Акты') is False:
-                        os.makedirs(f'{a}/Акты')
-                    if os.path.isdir(f'{a}/Видео') is False:
-                        os.makedirs(f'{a}/Видео')
-                    if os.path.isdir(f'{a}/Рд') is False:
-                        os.makedirs(f'{a}/Рд')
-                    if name[-1] not in '_'.join(os.listdir(f"{a}/Акты")):
-                        print(name, os.listdir(f"{a}/Акты"))
-                        shutil.move(akti[i], f"{a}/Акты")
-                    print(akti[i])
-                    del akti[i]
+            if proverka_sh(subdirname):
+                sps_papasha[subdirname] = os.path.join(root, subdirname)
+    for i in akti:
+        for j in sps_papasha.keys():
+            if i in j:
+                print(i, j)
+                if os.path.isdir(f'{sps_papasha[j]}/Акты') is False:
+                    os.makedirs(f'{sps_papasha[j]}/Акты')
+                if os.path.isdir(f'{sps_papasha[j]}/Видео') is False:
+                    os.makedirs(f'{sps_papasha[j]}/Видео')
+                if os.path.isdir(f'{sps_papasha[j]}/Рд') is False:
+                    os.makedirs(f'{sps_papasha[j]}/Рд')
+                if akti[i][-1] not in os.listdir(f"{sps_papasha[j]}/Акты"):
+                    if os.path.isfile(akti[i]):
+                        if akti[i].split('\\')[-1] not in os.listdir(f"{sps_papasha[j]}/Акты"):
+                            shutil.move(akti[i], f"{sps_papasha[j]}/Акты")
+                            print(f'Файл {akti[i]} перенесен!')
+                        else:
+                            print(f'Файл {akti[i]} уже существует!')
+                    else:
+                        print(f'Файл {akti[i]} уже перенесен!')
 def perenos_rd():
     rd_path = r"C:\Users\Dmitry\Desktop\Акты\Рд"
 

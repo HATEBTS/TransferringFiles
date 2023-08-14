@@ -10,7 +10,7 @@ dir_count = len(os.environ.get("DISK").split('\\')) + 1
 base_path = os.path.join(os.path.dirname(__file__), 'data_folder/base_disk.xlsx')
 
 
-def unload_disk_base(dirs):
+def unload_disk_base(dirs=os.environ.get("DISK")):
     check_list = []
     dict_base_path = {
         "Звено": [],
@@ -29,7 +29,10 @@ def unload_disk_base(dirs):
                     os.path.join(root, file).split('\\')[dir_count].split('_')[0] not in '_'.join(check_list):
                 path_file = os.path.join(root, file).split('\\')
                 zv = path_file[dir_count].split('_')[0][:2]
-                num_act = path_file[dir_count].split('_')[0][2:5]
+                if '-' not in path_file[dir_count].split('_')[0]:
+                    num_act = path_file[dir_count].split('_')[0][2:5]
+                else:
+                    num_act = path_file[dir_count].split('_')[0][2:7]
                 dict_base_path["Звено"].append(zv)
                 dict_base_path["Номер акта"].append(num_act)
                 list_files = []
@@ -67,7 +70,10 @@ def unload_disk_base(dirs):
                     prost = os.path.join(root, file).split('\\')[dir_count].split('_')[0].split(',')
                     for _ in range(1, len(prost)):
                         dict_base_path["Звено"].append(prost[_].lstrip()[:2])
-                        dict_base_path["Номер акта"].append(prost[_].lstrip()[2:5])
+                        if '-' not in prost[_]:
+                            dict_base_path["Номер акта"].append(prost[_].lstrip()[2:5])
+                        else:
+                            dict_base_path["Номер акта"].append(prost[_].lstrip()[2:7])
                         dict_base_path["Статус акта"].append(last_akt)
                         dict_base_path["Статус видео"].append(last_vid)
                         dict_base_path["Кол-во видео"].append(last_colvid)
@@ -78,10 +84,9 @@ def unload_disk_base(dirs):
                     check_list.append(path_file[dir_count].split('_')[0])
     return dict_base_path
 
-
-def svod(paths=os.environ.get("DISK")):
+def svod():
     try:
-        d = unload_disk_base(paths)
+        d = unload_disk_base()
         for i in d.values():
             print(len(i))
         writer = openpyxl.Workbook()

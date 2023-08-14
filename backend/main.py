@@ -29,7 +29,7 @@ def rename_sec(path, date, name, time):
                 num += 1
                 f = f"{path}/{name}_{date}_{num}"
                 print(num, f)
-        if '.sec' in i:
+        if '.sec' in i or '.LRV' in i:
             full_path = f'{path}/{i}'
 
             file = f"{path}/{name}_{date}_{num}"
