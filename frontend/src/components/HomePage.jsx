@@ -64,10 +64,8 @@ const HomePages = (event) => {
                     </div>
                 </form>
             </div>
-
         </div>
     )
-
 }
 
 export default HomePages;
