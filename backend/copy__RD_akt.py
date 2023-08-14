@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 def perenos_aktov():
-    akt_path = r"C:\Users\Dmitry\Desktop\Акты\Акты"
+    akt_path = r"E:\!Проверено"
 
     rd_path = r"C:\Users\Dmitry\Desktop\Акты\Рд"
 
@@ -24,18 +24,20 @@ def perenos_aktov():
             a = os.path.join(root, subdirname)
             name = os.path.join(root, subdirname).split('\\')
             print(name)
-            if len(os.path.join(root, subdirname).split('\\'))  < dir_count + 1:
+            if len(os.path.join(root, subdirname).split('\\')) < dir_count + 1:
                 continue
             for i in akti:
                 if i in name[dir_count]:
                     print(name[dir_count], i)
+
                     if os.path.isdir(f'{a}/Акты') is False:
                         os.makedirs(f'{a}/Акты')
                     if os.path.isdir(f'{a}/Видео') is False:
                         os.makedirs(f'{a}/Видео')
                     if os.path.isdir(f'{a}/Рд') is False:
                         os.makedirs(f'{a}/Рд')
-                    if name[-1] not in os.listdir(f"{a}/Акты"):
+                    if name[-1] not in '_'.join(os.listdir(f"{a}/Акты")):
+                        print(name, os.listdir(f"{a}/Акты"))
                         shutil.move(akti[i], f"{a}/Акты")
                     print(akti[i])
                     del akti[i]
@@ -75,4 +77,5 @@ def perenos_rd():
             except Exception as e:
                 print(e)
 
-perenos_rd()
+
+perenos_aktov()
