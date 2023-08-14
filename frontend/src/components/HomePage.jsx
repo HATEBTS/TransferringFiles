@@ -54,7 +54,7 @@ const HomePages = (event) => {
                         </div>
                         <ElementsTechnique />
 
-                        <input name={"number-object"} type={"text"} className={"p-1 mt-2 mx-auto w-50 form-control"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
+                        <input name={"number-object"} type={"text"} placeholder={"Введите номер акта"} className={"p-1 mt-2 mx-auto w-50 form-control"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
                     </div>
                     <div className={"justify-content-between"}>
                         <div className={"input-group mb-3"}>
