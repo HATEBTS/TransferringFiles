@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import InfoTime from "./InfoTime";
 
 function CheckBox() {
   const [isChecked, setIsChecked] = useState(false);
@@ -9,11 +10,12 @@ function CheckBox() {
 
   return (
     <div className={"input-group cs-form d-flex justify-content-between mt-0 mx-auto w-50"}>
-      <div className={"input-group-text p-1 mt-2"}>
+
+      <div className={"input-group-text pe-1 p-1 mt-2"}>
         <input
-          className="form-check-input p-1 mt-0"
+          className={"form-check-input p-1 mt-0"}
           id={"flag"}
-          type="checkbox"
+          type={"checkbox"}
           aria-label="Флажок для следующего ввода текста"
           onChange={handleCheckboxChange}
         />
@@ -26,6 +28,8 @@ function CheckBox() {
         className={`p-1 mt-2 mx-auto form-control ${!isChecked ? "disabled" : ""}`}
         disabled={!isChecked}
       />
+        <InfoTime />
+
     </div>
   );
 }
