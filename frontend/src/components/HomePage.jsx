@@ -50,11 +50,11 @@ const HomePages = (event) => {
 
                     <div className={"mt-2"}>
                         <div>
-                            <input name={"date"} type={"date"} className={"p-1 mx-auto w-50 form-control button-dir"}/>
+                            <input name={"date"} type={"date"} className={"transparent-input p-1 mx-auto w-50 form-control button-dir transparent-input"}/>
                         </div>
                         <ElementsTechnique />
 
-                        <input name={"number-object"} type={"text"} placeholder={"Введите номер акта"} className={"p-1 mt-2 mx-auto w-50 form-control"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
+                        <input name={"number-object"} type={"text"} placeholder={"Введите номер акта"} className={"p-1 mt-2 mx-auto w-50 form-control transparent-input"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
                     </div>
                     <div className={"justify-content-between"}>
                         <div className={"input-group mb-3"}>

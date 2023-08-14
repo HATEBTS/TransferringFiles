@@ -45,6 +45,8 @@
 }
 
 body {
+  background-image: url('../images/img_fon.jpeg');
+  background-size: cover;
   margin: 0;
   font-family: var(--bs-font-sans-serif);
   font-size: 1rem;
@@ -10880,4 +10882,23 @@ textarea.form-control-lg {
   font-size: 1rem;
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.transparent-input {
+  background: transparent;
+  border: 1px solid #ccc; /* Настройте границы по вашему усмотрению */
+  padding: 8px; /* Настройте отступы по вашему усмотрению */
+  color: #333; /* Настройте цвет текста по вашему усмотрению */
+}
+
+.transparent-select {
+  background: transparent;
+  border: 1px solid #ccc; /* Настройте границы по вашему усмотрению */
+  padding: 8px; /* Настройте отступы по вашему усмотрению */
+  color: #ffffff; /* Настройте цвет текста по вашему усмотрению */
+}
+
+.transparent-select option {
+  background: transparent;
+  color: #ffffff; /* Настройте цвет текста по вашему усмотрению */
 }

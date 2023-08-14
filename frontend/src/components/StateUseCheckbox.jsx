@@ -13,7 +13,7 @@ function CheckBox() {
 
       <div className={"input-group-text pe-1 p-1 mt-2"}>
         <input
-          className={"form-check-input p-1 mt-0"}
+          className={"transparent-input form-check-input p-1 mt-0"}
           id={"flag"}
           type={"checkbox"}
           aria-label="Флажок для следующего ввода текста"
@@ -25,7 +25,7 @@ function CheckBox() {
         id={"inp1"}
         type="time"
         style={{ width: "60px" }}
-        className={`p-1 mt-2 mx-auto form-control ${!isChecked ? "disabled" : ""}`}
+        className={`transparent-input p-1 mt-2 mx-auto form-control ${!isChecked ? "disabled" : ""}`}
         disabled={!isChecked}
       />
         <InfoTime />
