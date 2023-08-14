@@ -4,6 +4,10 @@ import DirectorySelectDialog from "./FileDialogButton";
 import CheckBox from "./StateUseCheckbox";
 import LoadingModal from "./ModalLoading";
 import React, {useState} from "react";
+<<<<<<< HEAD
+import ElementsTechnique from "./ElementsTechnique";
+import InfoTime from "./InfoTime";
+=======
 
 const handleDirectorySelect = (selectedPath) => {
   console.log('Selected directory path:', selectedPath);
@@ -11,6 +15,7 @@ const handleDirectorySelect = (selectedPath) => {
     selectedPathInput.value = selectedPath;
   // Do whatever you want to do with the selected path here
 };
+>>>>>>> d98c2561c024c43ff04aceff0d78677d435b3719
 
 
 const HomePages = (event) => {
@@ -46,19 +51,28 @@ const HomePages = (event) => {
   };
     return (
         <div className="name">
-        <TabWindow />
-        <div className={"container center-block"}>
-            <form id={"form"} method={"post"} action={"#"} onSubmit={HandleFormSubmit} target={"_blank"}>
+            <TabWindow />
+            <div className={"container center-block"}>
+                <form id={"form"} method={"post"} action={"#"} onSubmit={HandleFormSubmit} target={"_blank"}>
+                        <DirectorySelectDialog onSelect={handleDirectorySelect} />
+                        <input type={"hidden"} id={"selectedPath"} name={"dirs"} /> {/* Add the hidden input for the selected path */}
 
-                    <DirectorySelectDialog onSelect={handleDirectorySelect} />
-                    <input type={"hidden"} id={"selectedPath"} name={"dirs"} /> {/* Add the hidden input for the selected path */}
+                    <div className={"mt-2"}>
+                        <div>
+                            <input name={"date"} type={"date"} className={"transparent-input p-1 mx-auto w-50 form-control button-dir transparent-input"}/>
+                        </div>
+                        <ElementsTechnique />
 
-                <div className={"mt-2"}>
-                    <div>
-                        <input name={"date"} type={"date"} className={"p-1 mx-auto w-50 form-control button-dir"}/>
+                        <input name={"number-object"} type={"text"} placeholder={"Введите номер акта"} className={"p-1 mt-2 mx-auto w-50 form-control transparent-input"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
                     </div>
-                    <select name={"number-camera"} className={"mt-2 mx-auto w-50 form-control form-control-sm p-1 bg-light border"}>
+                    <div className={"justify-content-between"}>
+                        <div className={"input-group mb-3"}>
+                            <CheckBox />
 
+<<<<<<< HEAD
+                        </div>
+                    </div>
+=======
                         <option>Звено 1</option>
                         <option>Звено 2</option>
                         <option>Звено 3</option>
@@ -69,23 +83,18 @@ const HomePages = (event) => {
                         <option>Звено 8</option>
                         <option>Звено 9</option>
                         <option>Звено 10</option>
+>>>>>>> d98c2561c024c43ff04aceff0d78677d435b3719
 
-                    </select>
-                    <input name={"number-object"} type={"text"} className={"p-1 mt-2 mx-auto w-50 form-control"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
-                </div>
-                <div className={"input-group mb-3 "}>
-                    <CheckBox />
-                </div>
-                <div className={"row"}>
-                    <p className={"mt-5 w-25 mx-auto"}><input className={"btn btn-outline-secondary"} id={"btn"} type={"submit"}/></p>
-                    <LoadingModal />
-                </div>
-            </form>
+                    <div className={"row"}>
+                        <p className={"mt-5 w-25 mx-auto"}><input className={"btn btn-outline-secondary"} id={"btn"} type={"submit"}/></p>
+                        <LoadingModal />
+                    </div>
+                </form>
 
+
+            </div>
 
         </div>
-
-    </div>
     )
 
 }
