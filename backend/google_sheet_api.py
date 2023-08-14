@@ -10,7 +10,9 @@ print(worksheet.get('H2:H'))
 list_shifr = worksheet.get('H2:H')
 disk_dict = unload_disk_base()
 
+
 status_list = []
+
 
 list_zv_disk = disk_dict['Звено']
 list_pn_disk = disk_dict['Номер акта']
@@ -20,6 +22,7 @@ list_vid_disk = disk_dict['Статус видео']
 list_rd_disk = disk_dict['Статус РД']
 
 list_shifr_disk = [''.join(x) for x in zip(list_zv_disk, list_pn_disk)]
+
 
 for i in range(0, len(list_shifr)):
     if len(list_shifr[i]) > 0:
@@ -38,7 +41,7 @@ for i in range(0, len(list_shifr)):
         elif len(dast) != 0:
             print(dast, 'Не подходит')
             status_list.append([False, False, False])
-
     else:
         status_list.append(['','',''])
 worksheet.update(f"L2:N{len(list_shifr) + 1}", status_list)
+

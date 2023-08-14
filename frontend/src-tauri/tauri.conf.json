@@ -8,7 +8,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "Мандарин",
+    "productName": "Долька от мандаринки",
     "version": "0.1.0"
   },
   "tauri": {
@@ -37,7 +37,7 @@
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
-        "icons/128x128@2x.png",
+        "img_fon.jpeg",
         "icons/icon.icns",
         "icons/atom.ico"
       ],
@@ -71,7 +71,10 @@
         "height": 500,
         "resizable": true,
         "title": "Мандаринка",
-        "width": 700
+        "width": 700,
+        "closable": false,
+        "decorations": true,
+        "theme": "Dark"
       }
     ]
   }

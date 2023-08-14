@@ -5,11 +5,6 @@ import './style/bootstrap.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePages from "./components/HomePage";
 import BaseWork from "./components/WindowBaseWork";
-import ApiCallButton from "./components/handleExcelFile";
-import LoadingModal from "./components/ModalLoading";
-import CheckBox from "./components/StateUseCheckbox";
-
-
 
 
 const elements = (
