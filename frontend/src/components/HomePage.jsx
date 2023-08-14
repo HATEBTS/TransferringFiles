@@ -7,7 +7,6 @@ import React, {useState} from "react";
 import ElementsTechnique from "./ElementsTechnique";
 
 
-
 const HomePages = (event) => {
     const [isLoading, setIsLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -46,35 +45,26 @@ const HomePages = (event) => {
                 <form id={"form"} method={"post"} action={"#"} onSubmit={HandleFormSubmit} target={"_blank"}>
                         <DirectorySelectDialog onSelect={handleDirectorySelect} />
                         <input type={"hidden"} id={"selectedPath"} name={"dirs"} /> {/* Add the hidden input for the selected path */}
-
                     <div className={"mt-2"}>
                         <div>
                             <input name={"date"} type={"date"} className={"transparent-input p-1 mx-auto w-50 form-control button-dir transparent-input"}/>
                         </div>
                         <ElementsTechnique />
-
                         <input name={"number-object"} type={"text"} placeholder={"Введите номер акта"} className={"p-1 mt-2 mx-auto w-50 form-control transparent-input"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
                     </div>
                     <div className={"justify-content-between"}>
                         <div className={"input-group mb-3"}>
                             <CheckBox />
-
                         </div>
                     </div>
-
-
                     <div className={"row"}>
                         <p className={"mt-5 w-25 mx-auto"}><input className={"btn btn-outline-secondary"} id={"btn"} type={"submit"}/></p>
                         <LoadingModal />
                     </div>
                 </form>
-
-
             </div>
-
         </div>
     )
-
 }
 
 export default HomePages;
