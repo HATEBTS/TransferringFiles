@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Указываем путь к JSON
-gc = gspread.service_account(filename=os.environ.get("DISK"))
+gc = gspread.service_account(filename=os.environ.get("GOOGLE_CREDENTIALS"))
 
 #Открываем тестовую таблицу
 sh = gc.open("Выходная таблица")
