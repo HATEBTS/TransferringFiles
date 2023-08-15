@@ -10907,3 +10907,11 @@ textarea.form-control-lg {
 .color-white {
   color: #ffffff;
 }
+
+.size-dance {
+  width: 350px;
+  position: relative;
+  top: -130px;
+  right: -200px;
+  bottom: 150px;
+}
