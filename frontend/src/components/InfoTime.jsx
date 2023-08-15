@@ -21,14 +21,14 @@ const InfoTime = () => {
   return (
     <div className="app">
       <button
-          className={"btn_1 btn-outline-info p-1 mt-2 ms-2"}
+          className={"btn_1 btn-danger p-1 mt-2 ms-2"}
           type={"button"}
           onClick={() => {
           openModal();
           toggleMessage();
         }}
       >
-        Инфо
+        Инфо!!!
       </button>
       {modalOpen && (
         <div className="modal_message">
@@ -36,7 +36,7 @@ const InfoTime = () => {
             <h2 className={"text-center"}>Параметр времени съёмок!</h2>
             {showMessage && (
               <div className="message_modal text-center">
-                Выставляйте этот параметр, когда выгражаете несколько актов за один день!
+                Выставляйте этот параметр, когда выгружаете несколько актов за один день!
                   <br/>
                       Этот параметр - время окончания первой съемки!
               </div>

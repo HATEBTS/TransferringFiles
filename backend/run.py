@@ -112,5 +112,10 @@ def copy_rd():
     pass
 
 
+@app.route('/copy_act')
+def copy_act():
+    pass
+
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -47,10 +47,10 @@ const HomePages = (event) => {
                         <input type={"hidden"} id={"selectedPath"} name={"dirs"} /> {/* Add the hidden input for the selected path */}
                     <div className={"mt-2"}>
                         <div>
-                            <input name={"date"} type={"date"} className={"transparent-input p-1 mx-auto w-50 form-control button-dir transparent-input"}/>
+                            <input name={"date"} type={"date"} className={"p-1 mx-auto w-50 form-control button-dir"}/>
                         </div>
                         <ElementsTechnique />
-                        <input name={"number-object"} type={"text"} placeholder={"Введите номер акта"} className={"p-1 mt-2 mx-auto w-50 form-control transparent-input"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
+                        <input name={"number-object"} type={"text"} placeholder={"Введите номер акта"} className={"p-1 mt-2 mx-auto w-50 form-control"} aria-label={"Small"} aria-describedby={"inputGroup-sizing-sm"}/>
                     </div>
                     <div className={"justify-content-between"}>
                         <div className={"input-group mb-3"}>
@@ -58,7 +58,7 @@ const HomePages = (event) => {
                         </div>
                     </div>
                     <div className={"row"}>
-                        <p className={"mt-5 w-25 mx-auto"}><input className={"btn btn-outline-secondary"} id={"btn"} type={"submit"}/></p>
+                        <p className={"mt-5 w-25 mx-auto"}><input className={"btn btn-secondary btn-lg"} id={"btn"} type={"submit"}/></p>
                         <LoadingModal />
                     </div>
                 </form>

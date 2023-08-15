@@ -27,8 +27,8 @@ function ElementsTechnique() {
     color: '#333',
   };
    return <div>
-      <select style={transparentSelectStyles} name={"number-camera"} className={"mt-2 mx-auto w-50 form-control form-control-sm p-1"} onChange={(event) => event.target.value}>
-         <option style={transparentOptionStylesFirst}>Выберите звено</option>
+      <select name={"number-camera"} className={"mt-2 mx-auto w-50 form-control form-control-sm p-1"} onChange={(event) => event.target.value}>
+         <option >Выберите звено</option>
          {options}
       </select>
    </div>;
