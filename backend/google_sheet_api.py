@@ -46,9 +46,7 @@ for i in range(0, len(list_shifr)):
         if len(dast) != 0 and dast in list_shifr_disk:
             ind = list_shifr_disk.index(dast)
             status_list.append([list_akt_disk[ind], list_vid_disk[ind], list_rd_disk[ind]])
-
         elif len(dast) != 0 and f'0{dast}' in list_shifr_disk:
-
             ind = list_shifr_disk.index(f'0{dast}')
             status_list.append([list_akt_disk[ind], list_vid_disk[ind], list_rd_disk[ind]])
         elif len(dast) != 0:

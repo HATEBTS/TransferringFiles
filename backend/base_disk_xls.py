@@ -49,7 +49,7 @@ def unload_disk_base(dirs=os.environ.get("DISK")):
                     last_akt = False
                 if '.mp4' in list_files or '.sec' in list_files:
                     dict_base_path["Статус видео"].append(True)
-                    last_colvid = len([i for i in f if '.mp4' in i or ".sec" in i])
+                    last_colvid = len([i for i in f if '.mp4' in i or ".sec" in i or ".MP4" in i or ".LRF" in i])
                     dict_base_path["Кол-во видео"].append(last_colvid)
                     last_vid = True
                 else:
