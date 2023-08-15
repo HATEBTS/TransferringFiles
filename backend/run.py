@@ -109,14 +109,11 @@ def base_disk():
 
 @app.route('/copy_rd')
 def copy_rd():
-<<<<<<< HEAD
     pass
 
 
 @app.route('/copy_act')
 def copy_act():
-=======
->>>>>>> 9513ec4dfc79ff18249451c448658a12e674556a
     pass
 
 
