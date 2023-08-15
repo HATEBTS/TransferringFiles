@@ -25,7 +25,7 @@ function CheckBox() {
         id={"inp1"}
         type="time"
         style={{ width: "60px" }}
-        className={`transparent-input p-1 mt-2 mx-auto form-control ${!isChecked ? "disabled" : ""}`}
+        className={`p-1 mt-2 mx-auto form-control ${!isChecked ? "disabled" : ""}`}
         disabled={!isChecked}
       />
         <InfoTime />
