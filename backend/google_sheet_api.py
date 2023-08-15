@@ -7,11 +7,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Указываем путь к JSON
-gc = gspread.service_account(filename=os.environ.get("DISK"))
+gc = gspread.service_account(filename=os.environ.get("GOOGLE_CREDENTIALS"))
+
 
 #Открываем тестовую таблицу
 sh = gc.open("Выходная таблица")
-worksheet = sh.worksheet("Лист1")
+worksheet = sh.worksheet("Лист3")
 #Выводим значение ячейки H1
 print(worksheet.get('H2:H'))
 list_shifr = worksheet.get('H2:H')
@@ -42,7 +43,7 @@ for i in range(0, len(list_shifr)):
             dast = dast.replace("_", '-')
         if " " in dast:
             dast = dast.split(' ')[0]
-        if len(dast) != 0 and dast in list_shifr_disk:
+        if len(dast) != 0 and (dast in list_shifr_disk or f'0{dast}' in list_shifr_disk):
             ind = list_shifr_disk.index(dast)
             status_list.append([list_akt_disk[ind], list_vid_disk[ind], list_rd_disk[ind]])
         elif len(dast) != 0:
