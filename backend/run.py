@@ -8,7 +8,7 @@ from flask_migrate import Migrate
 from flask_cors import CORS
 from datetime import datetime
 
-from google_sheet_api import google_sipher
+# from google_sheet_api import google_sipher
 from psql_to_xls import psql_to_excel_load
 from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
