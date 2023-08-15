@@ -114,6 +114,7 @@ def copy_rd():
         perenos_rd()
         return jsonify({'Ok': 200})
 
+
 @app.route('/move_act')
 def copy_akt():
     if request.method == "GET":
