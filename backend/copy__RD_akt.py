@@ -2,6 +2,7 @@ import os
 import openpyxl
 import shutil
 from dotenv import load_dotenv
+from tkinter import filedialog as fd
 
 load_dotenv()
 
@@ -16,8 +17,7 @@ def proverka_sh(file):
 
   
 def perenos_aktov():
-    akt_path = r"C:\Users\Dmitry\Desktop\Акты\Акты"
-    dir_count = len(os.environ.get("DISK").split('\\')) + 1
+    akt_path = fd.askdirectory()
 
     akti = {}
     sps_papasha = {}
@@ -53,9 +53,7 @@ def perenos_aktov():
 
                         
 def perenos_rd():
-    rd_path = r"C:\Users\Dmitry\Desktop\Акты\Рд"
-
-    dir_count = len(os.environ.get("DISK").split('\\')) + 1
+    rd_path = fd.askdirectory()
     rd = {}
     # Ищем рабочую документацию
     for root, paths, files in os.walk(os.path.abspath(rd_path)):
@@ -71,12 +69,12 @@ def perenos_rd():
                     book = openpyxl.load_workbook(full_path)
                     sheet = book.active
                     kks = str(sheet["C10"].value)
+                    print(kks)
 
                     for i in rd.keys():
                         if kks.lower() in i.lower():
                             print(kks, i)
                             end_path = '/'.join(os.path.join(root, file).split('\\')[:-2])
-                            print(end_path)
                             if os.path.isdir(f'{end_path}/Акты') is False:
                                 os.makedirs(f'{end_path}/Акты')
                             if os.path.isdir(f'{end_path}/Видео') is False:
@@ -87,6 +85,3 @@ def perenos_rd():
                             print('OK')
             except Exception as e:
                 print(e)
-
-
-perenos_aktov()

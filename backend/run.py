@@ -12,6 +12,7 @@ from psql_to_xls import psql_to_excel_load
 from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
 from base_disk_xls import svod
+from copy__RD_akt import perenos_aktov, perenos_rd
 
 
 load_dotenv()
@@ -109,15 +110,13 @@ def base_disk():
 
 @app.route('/copy_rd')
 def copy_rd():
-<<<<<<< HEAD
-    pass
+    if request.method == "GET":
+        perenos_rd()
 
-
-@app.route('/copy_act')
-def copy_act():
-=======
->>>>>>> 9513ec4dfc79ff18249451c448658a12e674556a
-    pass
+@app.route('/move_act')
+def copy_akt():
+    if request.method == "GET":
+        perenos_aktov()
 
 
 if __name__ == "__main__":

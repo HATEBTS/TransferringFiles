@@ -2,6 +2,7 @@ import React from 'react';
 import TabWindow from "./TabsWindow";
 import ApiCallButton from "./handleExcelFile";
 import CopyRd from "./CopyRd";
+import MoveAct from "./MoveAct";
 
 function BaseWork() {
   return (
@@ -13,6 +14,7 @@ function BaseWork() {
             </div>
             <div className={"p-5"}>
                 <CopyRd />
+                <MoveAct />
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@ const ApiCallButton = () => {
       setIsLoading(true);
 
       // Вызов API
-      const response = await axios.get('http://127.0.0.1:5000/copy_rd');
+      const response = await axios.get('http://127.0.0.1:5000/move_act');
 
       // Обработка ответа от API
       console.log('Ответ от API:', response.data);
@@ -26,7 +26,7 @@ const ApiCallButton = () => {
         <div className={"row align-items-start"}>
           <div className={"col"}>
             <button className={"btn btn-dark"} onClick={handleApiCall} disabled={isLoading}>
-              {isLoading ? 'Загрузка...' : 'Раскидать рабочую документацию'}
+              {isLoading ? 'Загрузка...' : 'Раскидать акты'}
             </button>
           </div>
         </div>
