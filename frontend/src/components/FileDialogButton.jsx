@@ -28,7 +28,7 @@ const DirectorySelectDialog = ({ onSelect }) => {
       <button type="button" onClick={handleOpenDialog} className="mt-5 mx-auto form-control w-50 btn-primary">
         Выбрать каталог
       </button>
-      <p className={"mt-2 mx-auto text-center"}>Выбранный путь: {selectedPath}</p>
+      <p className={"color-white mt-2 mx-auto text-center"}>Выбранный путь: {selectedPath}</p>
     </div>
   );
 };

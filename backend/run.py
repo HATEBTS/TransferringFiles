@@ -107,8 +107,8 @@ def base_disk():
         return "Oppa"
 
 
-@app.route('/google_sheet_cipher')
-def google_cipher_api():
+@app.route('/copy_rd')
+def copy_rd():
     pass
 
 
