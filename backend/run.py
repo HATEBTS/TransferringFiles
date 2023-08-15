@@ -112,11 +112,13 @@ def base_disk():
 def copy_rd():
     if request.method == "GET":
         perenos_rd()
+        return jsonify({'Ok': 200})
 
 @app.route('/move_act')
 def copy_akt():
     if request.method == "GET":
         perenos_aktov()
+        return jsonify({'Ok': 200})
 
 
 if __name__ == "__main__":
