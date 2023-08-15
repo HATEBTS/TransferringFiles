@@ -1,9 +1,13 @@
 import gspread
+import os
 from base_disk_xls import unload_disk_base
+from dotenv import load_dotenv
 
+
+load_dotenv()
 
 # Указываем путь к JSON
-gc = gspread.service_account(filename=r'C:\Users\Dmitry\PycharmProjects\Transferring\backend\credentials.json')
+gc = gspread.service_account(filename=os.environ.get("DISK"))
 
 #Открываем тестовую таблицу
 sh = gc.open("Выходная таблица")
