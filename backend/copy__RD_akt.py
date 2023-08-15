@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 def proverka_sh(file):
     d = 0
     if len(file) >= 5:
@@ -13,10 +14,9 @@ def proverka_sh(file):
                 d += 1
     return d >= 5
 
+  
 def perenos_aktov():
-    akt_path = r"E:\!Проверено"
-
-    rd_path = r"C:\Users\Dmitry\Desktop\Акты\Рд"
+    akt_path = r"C:\Users\Dmitry\Desktop\Акты\Акты"
     dir_count = len(os.environ.get("DISK").split('\\')) + 1
 
     akti = {}
@@ -50,6 +50,8 @@ def perenos_aktov():
                             print(f'Файл {akti[i]} уже существует!')
                     else:
                         print(f'Файл {akti[i]} уже перенесен!')
+
+                        
 def perenos_rd():
     rd_path = r"C:\Users\Dmitry\Desktop\Акты\Рд"
 
