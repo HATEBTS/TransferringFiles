@@ -85,4 +85,3 @@ def perenos_rd():
                             print('OK')
             except Exception as e:
                 print(e)
-
