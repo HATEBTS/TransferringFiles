@@ -1,7 +1,7 @@
 import gspread
 from base_disk_xls import unload_disk_base
 # Указываем путь к JSON
-gc = gspread.service_account(filename=r'C:\Users\Dmitry\PycharmProjects\Transferring\backend\credentials.json')
+gc = gspread.service_account(filename=r'C:\Users\Phasmophobia\PycharmProjects\pythonProject\TransferringFiles\backend\credentials.json')
 #Открываем тестовую таблицу
 sh = gc.open("Выходная таблица")
 worksheet = sh.worksheet("Лист1")
