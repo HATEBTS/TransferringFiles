@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const CopyRd = () => {
+const SheetsG = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleApiCall = async () => {
@@ -9,7 +9,7 @@ const CopyRd = () => {
       setIsLoading(true);
 
       // Вызов API
-      const response = await axios.get('http://127.0.0.1:5000/copy_rd');
+      const response = await axios.get('http://127.0.0.1:5000/google_sheets');
 
       // Обработка ответа от API
       console.log('Ответ от API:', response.data);
@@ -26,11 +26,11 @@ const CopyRd = () => {
         <div className={"row align-items-start"}>
           <div className={"col"}>
             <button className={"btn btn-dark"} onClick={handleApiCall} disabled={isLoading}>
-              {isLoading ? 'Загрузка...' : 'Раскидать рабочую документацию'}
+              {isLoading ? 'Загрузка...' : 'Обновить Гугл таблицу'}
             </button>
           </div>
         </div>
   );
 };
 
-export default CopyRd;
+export default SheetsG;

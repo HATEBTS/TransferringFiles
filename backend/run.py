@@ -13,6 +13,7 @@ from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
 from base_disk_xls import svod
 from copy__RD_akt import perenos_aktov, perenos_rd
+from google_sheet_api import google_vg
 
 
 load_dotenv()
@@ -119,6 +120,12 @@ def copy_rd():
 def copy_akt():
     if request.method == "GET":
         perenos_aktov()
+        return jsonify({'Ok': 200})
+
+@app.route('/google_sheets')
+def copy_akt():
+    if request.method == "GET":
+        google_vg()
         return jsonify({'Ok': 200})
 
 
