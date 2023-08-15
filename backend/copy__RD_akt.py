@@ -6,6 +6,7 @@ from tkinter import filedialog as fd
 
 load_dotenv()
 
+
 def proverka_sh(file):
     d = 0
     if len(file) >= 5:
@@ -14,6 +15,7 @@ def proverka_sh(file):
                 d += 1
     return d >= 5
 
+  
 def perenos_aktov():
     akt_path = fd.askdirectory()
 
@@ -49,6 +51,7 @@ def perenos_aktov():
                     else:
                         print(f'Файл {akti[i]} уже перенесен!')
 
+                        
 def perenos_rd():
     rd_path = fd.askdirectory()
     rd = {}
@@ -82,3 +85,4 @@ def perenos_rd():
                             print('OK')
             except Exception as e:
                 print(e)
+

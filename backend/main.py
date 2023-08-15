@@ -29,10 +29,12 @@ def rename_sec(path, date, name, time):
                 num += 1
                 f = f"{path}/{name}_{date}_{num}"
                 print(num, f)
-        if '.sec' in i or '.LRV' in i:
+
+        if '.sec' in i or '.LRF' in i:
             full_path = f'{path}/{i}'
 
             file = f"{path}/{name}_{date}_{num}"
+
             if get_video_creation_date(full_path) == date:
                 os.rename(full_path, f"{file}.mp4")
                 listic.append(f"{name}_{date}_{num}.mp4")
