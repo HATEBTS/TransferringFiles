@@ -26,7 +26,7 @@ const ApiCallButton = () => {
         <div className={"row align-items-start"}>
           <div className={"col"}>
             <button className={"btn btn-dark"} onClick={handleApiCall} disabled={isLoading}>
-              {isLoading ? 'Загрузка...' : 'Раскидать Рабочую документацию'}
+              {isLoading ? 'Загрузка...' : 'Раскидать рабочую документацию'}
             </button>
           </div>
         </div>
