@@ -8,7 +8,6 @@ from flask_migrate import Migrate
 from flask_cors import CORS
 from datetime import datetime
 
-# from google_sheet_api import google_sipher
 from psql_to_xls import psql_to_excel_load
 from main import main
 from settings import BOOL_TRUE, BOOL_FALSE
@@ -110,15 +109,7 @@ def base_disk():
 
 @app.route('/google_sheet_cipher')
 def google_cipher_api():
-    if request.method == "GET":
-        cipher_lst = google_sipher()
-        for num_cipher in cipher_lst:
-            cipher = num_cipher.split(" ")[0]
-            if bool(re.search('[а-яА-Я]', cipher)):
-                continue
-            else:
-                print(cipher)
-        return ""
+    pass
 
 
 if __name__ == "__main__":
