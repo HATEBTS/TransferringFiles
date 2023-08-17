@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ApiCallButton = () => {
+const MoveAct = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleApiCall = async () => {
@@ -33,4 +33,4 @@ const ApiCallButton = () => {
   );
 };
 
-export default ApiCallButton;
+export default MoveAct;
