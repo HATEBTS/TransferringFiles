@@ -3,6 +3,7 @@ import openpyxl
 import shutil
 from dotenv import load_dotenv
 from tkinter import filedialog as fd
+import tkinter
 
 load_dotenv()
 
@@ -85,3 +86,4 @@ def perenos_rd():
                             print('OK')
             except Exception as e:
                 print(e)
+perenos_rd()
