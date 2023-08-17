@@ -122,8 +122,9 @@ def copy_akt():
         perenos_aktov()
         return jsonify({'Ok': 200})
 
+
 @app.route('/google_sheets')
-def copy_akt():
+def google_sheets():
     if request.method == "GET":
         google_vg()
         return jsonify({'Ok': 200})

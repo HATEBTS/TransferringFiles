@@ -1,8 +1,11 @@
 from celery import Celery
 
-app = Celery('hello', broker='amqp://guest@localhost//')
+
+broker_url = 'amqp://myuser:mypassword@localhost:5672/myvhost'
+
+app_celery = Celery('tasks', broker='pyamqp://guest@localhost//')
 
 
-@app.task
-def hello():
-    return 'hello world'
+@app_celery.task
+def add(x, y):
+    return print(x + y)
