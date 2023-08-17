@@ -1,26 +1,25 @@
-import gspread
 import os
 from base_disk_xls import unload_disk_base
 from dotenv import load_dotenv
+import gspread
 
 
 load_dotenv()
 
 # Указываем путь к JSON
-gc = gspread.service_account(filename=os.environ.get("GOOGLE_CREDENTIALS"))
+gc = gspread.service_account(filename=os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"))
+
 
 def google_vg():
-    #Открываем тестовую таблицу
+    # Открываем тестовую таблицу
     sh = gc.open("Выходная таблица")
     worksheet = sh.worksheet("Лист3")
-    #Выводим значение ячейки H1
+    # Выводим значение ячейки H1
     print(worksheet.get('H2:H'))
     list_shifr = worksheet.get('H2:H')
     disk_dict = unload_disk_base()
 
-
     status_list = []
-
 
     list_zv_disk = disk_dict['Звено']
     list_pn_disk = disk_dict['Номер акта']
@@ -31,12 +30,11 @@ def google_vg():
 
     list_shifr_disk = [''.join(x) for x in zip(list_zv_disk, list_pn_disk)]
 
-
     for i in range(0, len(list_shifr)):
         if len(list_shifr[i]) > 0:
             dast = list_shifr[i][0]
             if '`' in dast:
-                dast = dast.replace('`','')
+                dast = dast.replace('`', '')
             if "'" in dast:
                 dast = dast.replace("'", '')
             if "_" in dast:
@@ -53,6 +51,5 @@ def google_vg():
                 print(dast, 'Не подходит')
                 status_list.append([False, False, False])
         else:
-            status_list.append(['','',''])
+            status_list.append(['', '', ''])
     worksheet.update(f"L2:N{len(list_shifr) + 1}", status_list)
-

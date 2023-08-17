@@ -10,5 +10,5 @@ DB_CONFIG = {
 }
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 GOOGLE_TOKEN = path.join(path.dirname(__file__), "token.json")
-GOOGLE_CREDENTIALS = path.join(path.dirname(__file__), "credentials.json")
+GOOGLE_CREDENTIALS = path.join(path.dirname(__file__), "123.json")
 
