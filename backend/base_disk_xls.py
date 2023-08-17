@@ -23,7 +23,6 @@ def unload_disk_base(dirs=os.environ.get("DISK")):
     }
     for root, dirs, files in os.walk(os.path.abspath(dirs)):
         for file in files:
-            print(('_'.join(check_list)), (os.path.join(root, file).split('\\')[dir_count].split('_')[0]))
             if len(os.path.join(root, file).split('\\')) > dir_count and \
                     '_' in os.path.join(root, file).split('\\')[dir_count] and \
                     os.path.join(root, file).split('\\')[dir_count].split('_')[0] not in '_'.join(check_list):

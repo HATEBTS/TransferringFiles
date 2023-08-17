@@ -7,7 +7,7 @@ import gspread
 load_dotenv()
 
 # Указываем путь к JSON
-gc = gspread.service_account(filename=os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"))
+gc = gspread.service_account(filename=os.environ.get("GOOGLE_CREDENTIALS"))
 
 
 def google_vg():
