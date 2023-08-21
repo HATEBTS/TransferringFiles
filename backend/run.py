@@ -33,7 +33,7 @@ class SubmitForm(db.Model):
     date = db.Column(db.String(10), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now)
     number_camera = db.Column(db.String(50), nullable=False)
-    number_object = db.Column(db.String(15), nullable=False)
+    number_object = db.Column(db.String(30), nullable=False)
     selected_path = db.Column(db.String(100), nullable=False)
     status_request = db.Column(db.Boolean, default=False, nullable=False)
     time_obed = db.Column(db.String(15), nullable=True)
